@@ -82,9 +82,9 @@ git clone //traz pela primeira vez os dados que estão na pasta. Baixar os arqui
 Depois de criado o repositório no site "alura-git", adicionar no git:
 git remote add origin https://github.com/renanbuenom/alura-git.git
 	//nome "origin" é o mais comum de repositórios remotos. Vamos manter para seguir o padrão;
-git branch -M main //comando não utilizado
+git branch -m main //comando não utilizado
 git push -u origin main //no caso o github surgere o branch main, mas estamos usando o master, portanto:
-git push -u origin master //a master é o que desejamos enviar. O -u configura: sempre que estiver nessa máquina enviar git push e estiver na master, ele envia para o origin. // como sugestão o Vinícius no curso não gosta, ele sempre adiciona qual o repositório (nesse caso origin) e qual branch quer mandar (master);
+git push -u origin master //a master é o que desejamos enviar. O -u configura: sempre que estiver nessa máquina enviar git push e estiver na master, ele envia para o origin (utilizando apenas "git push") // como sugestão o Vinícius no curso não gosta, ele sempre adiciona qual o repositório (nesse caso origin) e qual branch quer mandar (master);
 
 >Branches
 São "Linhas de desenvolvimento" diferentes, para que uma mudança de código não influencie na outra.

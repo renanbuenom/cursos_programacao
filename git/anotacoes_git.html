@@ -1,0 +1,111 @@
+Anotações do Curso de Git e Github: Controle e compartilhe seu código
+Início: 19/12/20 - Término: 
+
+<script>
+>Meu repositório: cd C:/Users/renan/git_2
+
+> Repositórios // 1.6
+>> Comandos: 
+
+	git --help //lista os comandos básicos
+	cd //navegar entre pastas
+		cd .. //subir uma pasta
+		mkdir //criar pasta
+	ls //lista os arquivos dentro da pasta atual
+
+	git init //inicializar um repositório
+	git status
+	git add <file> //adiciona arquivo no repositório
+		git add . //adiciona todos os arquivos da pasta
+	git rm //remover arquivos
+	clear //limpa tela
+	commit //salvar, um checkpoint, para dizer que aqui aconteceu uma modificações a serem enviadas
+		//nunca commitar um código que não está funcionando/ incompleto
+		//adicionar commit: pequena atividade adicinonada, um bug solucionado e etc.
+	git commit -m "mensagem"//mensagem de commit. Colocar mensagem descritivas
+	git log //histórico de versões <ver detalhes em tópico abaixo>
+		ver lista de opções de visualizações em//ver site git log cheatsheet (devhints.io/git-log)
+	git log --oneline //mostra de forma resumida o histórico
+	git log -p //mostra as alterações que foram feitas
+		git log -pretty="format:%h %s %ae" //exemplo de visualização
+	git log --help //abre site com lista de opções
+
+
+	git config --global user.email "email@email.com"
+	git config --global user.name "Your Name" //configurações gerais da pasta, solitiadas pelo git
+	git config --local //config para cada projeto
+	git config --global //computador como um todo
+	git config <comando> //visualizar a configuração <comando>
+		ex.: git config user.name
+	.gitignore //arquivo especial, que lista todos os arquivos que o git deve ignorar.
+
+>> Definições:
+	HEAD: Estado atual do nosso código, ou seja, onde o Git nos colocou
+	Working tree: Local onde os arquivos realmente estão sendo armazenados e editados
+	index: Local onde o Git armazena o que será commitado, ou seja, o local entre a working tree e o repositório Git em si.
+
+>>git log
+commit 62b4449dcecd097724ee083554a85950f75a76c2 /*hash do commit, identificação única */ (HEAD -> master) /*Head é o local onde estamos. master é o bransh, ou ramo que ele se encontra. */
+Author: Renan <renanbuenom@gmail.com>
+Date:   Sat Dec 19 22:49:46 2020 -0300
+
+    Acento adicionado no curso de Integração Contínua //mensagem
+
+>Repositório Remoto
+mkdir servidor_2 //criando a pasta que servirá apenas como vai ser um repositório que só vai para controlar e armazenar as alterações
+cd servidor_2
+git init --bare //parâmetro bare: repositório puro, sem cópia dos arquivos, apenas alterações. //não terá a working tree (cópia dos arquivos)
+
+cd ../git_2 // recriei a pasta como _2, a anterior tinha bugado
+git remote //lista todos os repositórios remotos
+git remote add //adiciona respositório remoto
+	git remote add local_2 //criando e dando o nome de "local_git"
+	git remote add local_2 C:/Users/renan/git_2/servidor_2/local_2
+	git remote -v //mostra o endereço do local 
+		//(fetch): enviar, (push): buscar
+	git remote rename origin local_2
+
+git clone //traz pela primeira vez os dados que estão na pasta. Baixar os arquivos de outra fonte, para começar a usar em outro computador, por exemplo.
+	cd ../ana_2 //após criar uma nova pasta com qualquer nome
+	git clone it/ projeto_2 //vai criar a pasta projeto_2 dentro de ana_2, como clone de servidor_2
+
+
+	cd ../renan_2
+	git push local_2 master //empurra os dados para a pasta local_2 (remota), localizada na branch master.
+
+	cd ../ana_2/projeto_2
+	git remote rename origin local_2 //renomeou o servidor remoto origin (criado automaticamente no clone), para local_2, mesmo nome do servidor do renan_2
+	git pull local_2 master //puxa os dados da pasta local_2, localizada na branch master
+
+>Github
+
+Depois de criado o repositório no site "alura-git", adicionar no git:
+git remote add origin https://github.com/renanbuenom/alura-git.git
+	//nome "origin" é o mais comum de repositórios remotos. Vamos manter para seguir o padrão;
+git branch -M main //comando não utilizado
+git push -u origin main //no caso o github surgere o branch main, mas estamos usando o master, portanto:
+git push -u origin master //a master é o que desejamos enviar. O -u configura: sempre que estiver nessa máquina enviar git push e estiver na master, ele envia para o origin. // como sugestão o Vinícius no curso não gosta, ele sempre adiciona qual o repositório (nesse caso origin) e qual branch quer mandar (master);
+
+>Branches
+São "Linhas de desenvolvimento" diferentes, para que uma mudança de código não influencie na outra.
+A branch "master" é a branch padrão e acaba sendo a linha principal.
+
+Dica: *Ferramenta Visualizing Git*
+
+git branch //lista os branchs //aqui ele mostra com * qual o branch atual
+git branch *nome branch* //cria um novo branch
+git checkout *nome branch* //altera a branch atual (HEAD)
+git checkout -b *nome b* //atalho para criar e já alterar o branch
+git branch -d *nome b* //deleta a branch
+git merge *nome da branch da outra branch a mesclar*//mescla as duas branchs, mantendo uma como principal
+	:x //confirma o commit da tela de merge.
+git rebase *nome da outra branch* //passa a branch atual para "trás" da branch nomeada, juntando todos os commits da branch nomeada e mais os da atual.
+	git rebase titulo
+git log --graph //mostra as linhas de desenvolvimento
+
+Caso dê conflito de alterações na mesma linha de código, vai gera um conflito quando for 
+	Para resolver: consertar no arquivo atual, add o arquivo, e dar o comando apenas "git commit" que ele vai adicionar a correção automatic
+
+Sempre antes de começar a trabalhar, trazer o arquivo do servidor, com o "git pull local_2 master" (ou outras localidas, claro), para não gerar conflito na hora de dar o push do seu arquivo para o servidor.
+	Caso isso aconteça, trazer em pull, verificar se a alteração que você fez está ok e mandar em push novamente.
+

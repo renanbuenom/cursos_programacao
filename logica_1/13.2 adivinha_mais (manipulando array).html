@@ -1,0 +1,80 @@
+<meta charset="UTF-8">
+
+<input/>
+<button>Compare com o meu segredo</button>
+
+<script>
+
+	function sorteia() {
+
+		return Math.round(Math.random() * 10);
+	}
+
+	function sorteiaNumeros(quantidade) {
+
+		var segredos = []; //declara a variável com array vazio;
+
+		var numero = 1; //auxilia pra saber quantos números já foram sorteados;
+
+		while(numero <= quantidade){ //repetir a quantidade de números declarada lá em baixo;
+
+			var numeroAleatorio = sorteia(); //sorteia um núermo aleatório
+
+			if(numeroAleatorio !== 0) { //só executa se for diferente de 0
+
+				var achou = false; //não encontrou ele ainda
+
+				for(var posicao = 0; posicao < segredos.length; posicao++) { //percorrer a lista para verificar se o número está lá dentro, com o objetivo de não repetir números.
+
+					if(segredos[posicao] == numeroAleatorio){
+						achou = true; //se encontrar recebe TRUE e para o loop com break.
+						break;
+					}
+				}
+
+				if(achou == false) { //testa, se não encontrou o número na lista, coloca o número dentro do array, com o push.
+					segredos.push(numeroAleatorio);
+					numero++;
+				}
+			}
+		}
+
+		return segredos;
+
+	}
+
+	var segredos = sorteiaNumeros(3);
+
+	console.log(segredos); //mostra no console o resultado de "segredo".
+
+	var input = document.querySelector("input");
+	input.focus(); //direciona o cursor para dentro do input, assim que carregar a página.
+
+	function verifica() {
+
+		var achou = false;
+
+		for(var posicao = 0; posicao < segredos.length; posicao++) { //testa todas as posições do array incrementando em 1
+
+				if(input.value == segredos[posicao]) { 
+
+					alert("Você ACERTOU!");
+					achou = true; // para não ativar o alert abaixo
+					break; 
+				}
+		}
+
+			if(achou == false){
+
+				alert("Você ERROU!");
+			}
+
+		input.value = ""; //limpa a caixa de input
+		input.focus(); 
+	}
+
+	var button = document.querySelector("button");
+
+	button.onclick = verifica;
+
+</script>

@@ -1,0 +1,69 @@
+Anotações do Curso Lógica 1
+
+
+Lista de TAGs e exemplos HTML:
+<h1!>: Primeiro título da página
+<a>: âncora / <a href="http...">Texto</a>! #
+<meta charset="UTF-8"> #sempre começar dessa forma, para não ter problemas de acentuação. Meta é uma TAG, charset um atributo
+<script> </script> tag para leitura de programação Javascript
+
+
+Lista de comandos Java:
+; #utilizar sempre no final de um instrução
+alert ("Texto"); #popup / alert é uma instrução e "texto" dentro da fórmula é um parâmetro
++ #concatenar / ex. document.write("18"+20): 1820 #transformou também o numero em texto
+var #é definição de variável, apenas na primeira instrução
+Math.round() #arredondar
+Math.random() #número aleatório. Utilizar *10 para número de 0 a 10, *100 de 0 100..
+
+
+Melhorando a manutenção do código: se dentro do código tem uma informação que precisa ser alterada, utilizar ela como variável. Assim, alterando em um único lugar altera em todo o programa.
+
+Function #não colocar a saída dentro da função, pois você "trava" o comando a sempre exibir.
+Return da function: pode ser utilizado sem o var.
+//a variável definida dentro da função só vale dentro da função, a não ser que se gere o return
+
+prompt() #caixa para receber informação - sempre converte para String (texto)
+
+parseInt() #transforma o conteúdo em número inteiro
+parseFloat() // transforma o conteúdo em número decimal
+
+if() #é condição de TRUE or FALSE. Pode-se usar o {bloco}
+	else // executa o que o "se não"
+
+console.log() #exibe o resultado no console
+
+while() #repete o comando até o critério ser atingido
+	while (contador <=10){
+		mostra (contador)
+		contador = contador + 1
+	}
+
+NaN // Not a Number
+isNan() // testa se a variável é NaN, retorna True ou False.
+
+for(variável de inicialização; condição de repetição; incremento da variável)
+		for(var multiplicador = 1; multiplicador <= 10; multiplicador = multiplicador++){
+		mostra(7 * multiplicador); //exemplo 9
+variável++ // atalho de "variável + 1"
+
+break // automaticamente quebra a repetição
+
+// exemplo 13
+<imput/> caixa para preenchimento
+<button></button> 
+document.querySelector() // traz a TAG do mundo HTML para o Javascript
+input.value() // o valor digitado no input
+Para o teste não ser executado imediatamente, precisa ser inserido na função
+button.onclick = 'função' //executa a variável quando clicado no botão // sem parênteses, a funcão fica dentro do onclick e não é executada até o clicar.
+input.focus(); //direciona o cursor para dentro do input
+array [x,y,z,...] // junta diversas conteúdos 
+	// boa prática de array: colocar a variável no plural.
+	var segredos [5, 7, 10, 2]
+	segredos[0] // vai buscar o primeiro conteúdo do array
+	posições do array: [0,1,2,3,...]
+variável.length // tamanho do array	
+
+//Capítulo 9.8 Manipulando Array - ex. 13.2
+
+variavel.push() // "empurra" valores para dentro do array da variável

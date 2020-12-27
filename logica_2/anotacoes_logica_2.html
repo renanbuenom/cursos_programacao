@@ -1,0 +1,97 @@
+Anotações do Curso de Lógica de Programação II 
+Início: 12/12/20
+
+#Cap. 1.2 - Canvas
+
+<canvas></canvas> //TAG do mundo HTML. É uma área para que possamos desenhar
+
+	<canvas width="600" height="400"> // Definido a área do canvas. Em pixels.
+
+
+<script>
+#1.3 - Desenhando
+
+
+var tela = document.querySelector ('canvas'); //busca o elemento da página e retorna na variável;
+var pincel = tela.getContext('2d'); //tipo de pincel 2d //o "." sempre solicita alguma coisa para a variavel //como a variável atua sobre o pincel, atua sobre o canvas.
+
+>Retângulo
+pincel.fillRect(); //preencha um retângulo em pincel
+	pincel.fillRect(0, 0) //posição pela cordenada x e y, com início no canto superior esquerdo;
+		pincel.fillRect(0, 0, 600, 400); //pinta da posição 0, 0 até a posição 600, 400
+
+>Cor
+pincel.fillStyle(); //estilo de preenchimento. Cor = 'green/ red/ código..'
+	pincel.fillStyle = '#926834';
+	pincel.fillStyel = 'red';
+
+>Triângulo
+pincel.beginPath(); //caminho a ser percorrido pelo pincel
+pincel.moveTo(partida x, partida y);
+pincel.lineTo(próximo x, próximo y);
+pincel.fill(); //preenche o desenho;
+
+>Círculo
+pincel.arc(posição x, posição y, raio, ângulo inicial, ângulo final em radianos);
+	pincel.arc(x, y, raio, 0, 2 * Math.PI);
+
+>Biblioteca: canvas 2d api
+
+>Borda
+pincel.fillStroke = 'black' //define a borda elemento
+pincel.strokeRect(0, 0, 50, 50) //prenche a borda como retângulo
+pincel.strokeStyle = 'cor' //altera cor da stroke
+
+>Texto //ver 2.6 ex_fracao
+fillText()
+	pincel.font = '20px Georgia';
+	pincel.fillStyle = 'cor';
+	pincel.fillText ("texto", x, y);
+
+>Ação //ver 3.1
+tela.onclick = exibeAlerta; //não pode ter (), pois dessa forma quando carregasse a página já executaria a função. Sem o (), executa apenas em onclick.
+oncontextmenu // clique do botão direito;
+evento.shiftKey // tecla shift pressionada;
+altKey // tecla alt;
+onmousemove //no movimento do mouse;
+onmousedown //enquanto o botão esquerdo está pressionado;
+onmouseup //enquanto está solto;
+
+>Função Anônima //ver 3.8
+tela.onmousedown = function() { // a função não foi nomeada, foi criada diretamente dentro da chamada;
+        desenha = true;
+
+>Seleção de Cor //ver 3.9
+Selecione a cor <input type="color"> //no mundo HTML
+Para retonar para o mundo Javascript:
+    var paleta = document.querySelector('input');
+    pincel.fillStyle = paleta.value; // sempre pega o valor atual da paleta!;
+.value //retornar o valor
+
+> Noções de Movimento //ver 4.1 a 4.3: Desenhando
+pincel.clearRect (x, y, canvas x, canvas y); //limpa a tela
+function limpaTela() {
+	pincel.clearRect (0, 0, 600, 400);
+}
+
+setInterval(função, intervalo); //chama a função no Javascript, em um intervalo em milisegundos em que vai chamar a função;
+
+sentido = 1 ou -1 //ver 4.6 e 4.7 utilizar essa função dentro de atualizaTela(), com a condição de inverter o sentido para que algo aconteça em repetição, utilizando o if como conferência.
+
+>Teclas //ver 4.8
+onkeydown //identifica qual tecla to teclado foi pressionada;
+function leDoTelcado (evento){
+
+}
+document.onkeydown = leDoTeclado; //document é a função que lê tudo que a página possui, ele "escuta o teclado"
+evento.keyCode //traz o código da tecla que foi pressionada.
+	/*Obs: Cada tecla possui um KeyCode (código de tecla) respectivo e isso foi catalogado em uma tabela. Essa tabela deve ser usada pelos navegadores web para que usem os mesmos valores.
+	
+>Observação: Erro no chamada de função //ver 4.4 */
+
+>Alvo Aleatório //ver 5.2
+function sorteiaPosicao(maximo){
+	return Math.floor(Math.random() * maximo); //floor arredonda o número para baixo;
+}
+
+</script>

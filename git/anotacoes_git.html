@@ -26,7 +26,7 @@ Início: 19/12/20 - Término:
 	git log //histórico de versões <ver detalhes em tópico abaixo>
 		ver lista de opções de visualizações em//ver site git log cheatsheet (devhints.io/git-log)
 	git log --oneline //mostra de forma resumida o histórico
-	git log -p //mostra as alterações que foram feitas
+	git log -p //mostra as alterações que foram feitas, commit por commit
 		git log -pretty="format:%h %s %ae" //exemplo de visualização
 	git log --help //abre site com lista de opções
 
@@ -109,3 +109,65 @@ Caso dê conflito de alterações na mesma linha de código, vai gera um conflit
 Sempre antes de começar a trabalhar, trazer o arquivo do servidor, com o "git pull local_2 master" (ou outras localidas, claro), para não gerar conflito na hora de dar o push do seu arquivo para o servidor.
 	Caso isso aconteça, trazer em pull, verificar se a alteração que você fez está ok e mandar em push novamente.
 
+> Ctrl Z no Git //5.1
+
+	git checkout -- <file> //Caso o arquivo não tenha sido adicionado ainda (add).
+
+ 	git reset HEAD <file> //Caso o arquivo já tenha sido adicionado, mas não commitado (commit) //o HEAD indica onde o comando reset vai resetar o arquivo
+		//Depois possivelmente precisa usar o git checkout --
+	git revert <hash> //Caso já tenha sido commitado também, usar o git log, copiar o hash (código) do commit//vai gerar um commit adicional voltando o código
+
+> Guardando a modificação para depois //5.3
+
+	git stash //salva todas as alterações para um local temporário, que não seja gerado um commit e não apareça no log depois.
+	git stash list //lista tudo que está salvo
+	git stash apply <número da stash> //aplica as modificação, porém, mantem a stash ativa
+	git stash drop <número da stash> //remove a stash
+	git stash pop //adiciona a última alteração que foi adicionada lá e remove a stash que estava salva
+	git checkout //deixar a cópia do código da nossa aplicação no estado que desejarmos
+		git checkout <branch> (master) //deixa o código no estado da <branch>.
+		git checkout <hash> //deixa o código no estado do commit com a hash.
+
+> Visualizar versão de arquivo antigo //5.5
+
+	git log --oneline
+		copiar o código em amarelo da linha que deseja restaurar
+	git checkout <código antigo> //dessa forma ficamos "detached HEAD", ou seja, desanexados de quaisquer branchs e etc. Tudo que seja feito aqui dentro não interfere na linha principal, são ignorados.
+	git checkout -b <novo branch> //precisa ser adicionado um branch para que as alterações feitas no arquivo sejam salvas.
+
+> Vendo as alterações /6.1
+
+	git log --oneline
+	git diff <código brach1>..<código branch2> //mostra a diferença entre os códigos // o ".." significa "até"
+	git diff //mostra as alterações nos arquivos que ainda não foram adicionados (add). Caso já tenham sido, ele não mostra nada (sem inserir os códigos de commit acima).
+	(-) representa linhas removidas
+	(+) representa linhas adicionadas
+
+> Tags e Releases /6.3
+
+TAG - realiza um checkpoint da etapa (marco), de um "." que não altera mais (ex. 0.1):
+	git log -n 2 //mostra apenas os 2 últimos commits
+		copiar o hash do commit para marcar
+
+	git tag -a <nome> "<mensagem>"//adiciona uma tag
+	git tag -a v0.1.0 "Lançando a primeira versão (BETA) da aplicação de cursos"
+	git tag //mostra todas as tags disponíveis
+	git push local v0.1.0
+	
+	git remote -v //
+	git push origin master
+	git push origin v0.1.0 //enviando a tag paga origin, que é o repertório remoto do github
+
+RELEASES - No GITHUB, a tag fica na aba *releases*, que pode ser baixada compactada a *versão*.
+
+> RESUMO /7 - Conclusão
+
+	git init
+	git status
+	git add
+	git commit
+	git log 
+	git remote
+		local
+		origin
+	

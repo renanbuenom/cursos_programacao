@@ -1,0 +1,190 @@
+Anotações do curso de HTML e CSS3 parte 1
+
+<script>
+
+> 1.3 Definindo Texto 
+	
+Softwares Recomendados de Editores de Código
+	Sublime Text
+	Atom
+	Visual Studio Code
+index.html // é o nome do arquivo padrão da página. O .html indica é uma página web
+HTML (hyper text markup language) // basicamente é uma marcação de textos na web
+
+	TAGs padrão: <tag>
+
+TAGs	
+	<h> h de HEAD, indica título. Existem 6 níveis de título
+	<h1> primeiro título da página
+	<p> parágrafo
+	<strong> Destaque para o conteúdo. O negrito é só uma forma visual de mostrar isso
+	<em> Enfase, ou itálico.
+
+	Estrutura Básica 
+		<!DOCTYPE html> Tag de estrutura básica//padrão escrever em maiúsculo. ! para ser identificada como doctype. html mostra que deve ser utilizada a última tag de html, que hoje é a 5. Serve para o navegador entender a estrutura do código. Essa tag não precisa ser fechada, pois é uma tag de informação, e não de conteúdo
+		<html> //abrir na primeira linha e fechar na última (tag de conteúdo)
+		<meta charset="UTF-8"> 
+			meta = passa informações para o navegador
+			charset = conjunto de caracteres "character set" //é um atributo
+			UTF-8 = dicionário que tem as linguagens unicode, é o mais comum.
+		<html lang="pt-br"> Informa qual idioma a página está. //quando recebemos uma mensagem perguntando se quer traduzir a página, por exemplo, é pq alguém informou o idioma da página, pela tag LANG.
+		<title> Título de página
+	
+	Partes
+		<head> Cabeça = informações que estamos passando para  o navegador
+		<body> Corpo = informações que desejamos exibir na página
+
+>3 CSS 
+
+	CSS = Folha de Estilo em cascata //Mexe com o Visual do site. É a forma como mexemos em cada elementos para apresentar o site da maneira desejada.
+	Cascata = alterado um elemento anterior, ele reflete para todos que estão abaixo dele.
+		Corresponde a mesma estrutura do HTML
+
+	<style> //estilo do elemento.
+		<style="font-size: 20px"> Tamanho do texto//inicial é 16pixels (px)
+			"style" = propriedade
+			"=" = atribuição
+			"font-size: 20px" = conteúdo 
+		<style="text-align: center"> Centraliza o conteúdo
+		<style="font-size: 20px; text-align: center"> ; para indicar mais de um conteúdo do style
+
+3.4 Organizando o  estilo
+
+Adicionando style no HEAD 
+	<style> 
+		p { //Adicionar tags style para ser aplicada em todos os parágrafos. Sempre que usar a tag "p".
+			text-align: center
+		}
+	"</style>"
+
+Criar o arquivo "style.css" //o objetivo é que se padronize um estilo, que pode ser usado em diversos páginas diferentes
+		p { //toda TAG p do arquivo vai sofrer essa alteração de estilo
+			text-align: center
+		}
+	
+	Adicionar no HEAD:
+	<link rel= "stylesheet" href="style.css"
+		link = ligação externa
+		rel = relacionamento do link
+		stylesheet = folha de estilho (conteúdo da tag)
+		href = onde o arquivo está. Endereço de referência
+
+3.6 Mudando a cor
+
+	<style="background: #CCCCCC"> //alterando a cor de fundo para cinza. Se adicinado dentro de um elemento específico (h ou p), altera somente deste elementeo. Se adicionado na tag body dentro do CSS, vai alterar para tudo. #CCCCCC é uma propriedade "hexadecimal".
+		body {
+			background: #CCCCCC
+		}
+	<style="color: red"//cor do elemento. red é uma propriedade "nome".
+
+
+	Essas duas propriedades foram adicionadas no arquivo style.css, para ser aplicada às tags body e strong do arquivo todo.
+
+Aplicar o CSS específico APENAS PARA UM ELEMENTO:
+	Deve ser alplicado INLINE
+	Ou que mude o CSS para atender uma ESTRUTURA
+		em strong { //todos os strongs que estão dentro de em
+			color:red;
+		}
+
+3.8 Extra: Cores Hexadecimais
+
+Tipos de dicionário: 
+	binário 01
+	numérico 0123456789
+	hexadecimal 0123456789ABCDEF //usado para marcar cores
+
+	RGB = Red Green Blue //espectro padrão de 3 cores, que os seres humanos percebem as cores
+
+	> Hexadecimal # _ _ (red) _ _ (green) _ _ (blue)
+
+	0 = ausência de cor
+	F = máximo de cor
+
+	Combinação entre elas gera as cores conhecidas
+
+	Preto = #000000 /sem nenhuma cor	
+
+	Branco = #FFFFFF /com todas as cores
+
+	Vermelho = #FF0000
+	Green = #00FF00
+	Azul = #0000FF
+
+	> Dicionário RGB: de 0 a 255.
+
+	0 = ausência
+	255 = máximo
+
+	rgb(0,0,255)...
+
+	CORES podem ser representadas por Hexadecimal, RGB ou nome das cores.
+
+> 4.2 Identificador de elemento e tag de imagem
+
+Para referenciar um elemento específico (único) do html, no arquivo css, se utiliza o ID.
+	id = "<nomeid>"
+
+e no arquivo arquivo css se referencia o id com #:
+	#<nomeid>
+
+IMAGEM 
+	<img src="<nome do arquivo>"> //src = source
+
+> 4.4 CSS para imagens
+
+ Parâmetros de dimensões:
+ LARGURA.> width: em pixels ou %; 
+ ALTURA.> height: 000px
+ Espaçamento Interno do elemento> padding: 20px; //cria um "quadro" interno, espaçamento entre o elemento e a borda. Serve para um melhor posicionamento do elemento.
+ 	padding-left
+ 	padding-right
+ Espaçamento Externo do elemento> margin
+ 	margin-left: 00px;
+ 	margin-right: 00px;
+ 	//para espaçamento igual, basta escrever margin-left, que o navegador entender que é igual
+
+ borda do elemento: border: 10px solid #000000
+
+> Time de Front-End
+	UX: User Experience
+		Usabilidade
+	UI: Usar Interface
+		Design
+	Desenvolvedor Front-End
+		Código para Web
+>5.2 LISTAS > Não ordenadas e ordenadas
+
+<ul> //ul = unordered list
+	<li>Item1 //li = list item
+	<li>Item2 //
+
+CLASSE
+	Serve para itens que vão se repetir. Diferente do Identificador (ID), que são para itens únicos.
+
+	<class="<nomeclasse>">
+Para identificar no arquivo css:
+	.<nomeclasse>
+
+>5.4 DIVISÕES
+	<div> //usado para separar em blocos os conteúdos do site. Não intefere no visual no html. Serve para marcar o conteúdo e possibilitando ser alterado no css.
+	<div class="beneficios">
+
+>5.6 Inline e Block
+
+	Block: ocupa toda a largura da página, como a TAG <li>, em que cada linha ocupa todo o espaço, mesmo que seja alterada sua largura;
+	Inline: permite que outros elementos ocupem suas laterais, como o caso da imagem <img>;
+	ul { //em style.css
+		display: inline-block; //transforma o conteúdo em um misto de inline-block, permitindo que seja alterada a largura do elemento, por exemplo.
+		vertical-align: top; //alinhamento vertical do elemento lista
+		margin-left: 00%;
+	}
+
+> 6.2 Cabeçalho
+
+	<header> //conteúdo principal da página
+
+Não é recomendado criar estilos usando tags
+O ideal é usarmos classes para tudo
+
+</script>

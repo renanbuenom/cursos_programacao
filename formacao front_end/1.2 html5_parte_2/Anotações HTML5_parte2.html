@@ -17,14 +17,49 @@ Anotações do curso de HTML e CSS3 parte 1
 
 	text-transform //transformar o texto
 		text-transform: uppercase //em maiúscula
-			nav a {
-				text-transform: uppercase; //alteração do comportamento visual do html, dentro do arquivo css.
-				font-weight: bold //peso: negrito
-				font-size: 22 //tamanho
-				text-decoration: none //removendo a decoração, retira o sublinhado do texto;
-			}
+	nav a {
+		text-transform: uppercase; //alteração do comportamento visual do html, dentro do arquivo css.
+		font-weight: bold //peso: negrito
+		font-size: 22 //tamanho
+		text-decoration: none //removendo a decoração, retira o sublinhado do texto;
+	}
 
-	
+	reset.css //arquivo padrão usado para RESETAR as mudanças que o navegador faz no visual do site, como margens e etc.
+	<link rel="stylesheet" href="reset.css"> //IMPORTANTE: deve ser adicionado antes do "produtos.css", pois deve resetar antes de aplicar o nosso css.
 
+	> 3.5 Posicionamento
+
+	Para qualquer elemento:
+
+		position
+			position: static //estático, onde o elemento foi criado e não altera sua posição
+			position: relative //a partir do ponto inicial desloca-se o ponto
+				top: 00px //cria uma "margem" no topo, deslocando para baixo
+				left: 00px //cria uma "margem" na esquerda, deslocando para direita
+			position: absolute //é absoluto em relação a página toda. Pode-se posicionar livremente o elemento.
+				top: 0;
+				right: 0;
+
+		<div class "caixa"> //cria uma margem em volta do cabeçalho todo, centralizando a imagem e o conjunto de caracteres de <nav> (home,...)
+			.caixa {
+				position: relative //passar a caixa para frente;
+				width: 940px; //largura padrão de margem na web, pois uma largura comum total é de 1240px, e 940px é uma margem boa;
+				margin: 0 auto; //margem ajustada automaticamente, para ela se adequar ao tamanho da tela;
+		}
+
+	> 4.2 Divisões semânticas
+
+		<main> //Tag paga o conteúdo principal do site, semalhante ao header
+
+		.produtos li {
+		display: inline-block;
+		text-align: center;
+		width: 30%; /*largura divida igualmente nos produtos (1/3)*/
+		vertical-align: top; /*alinhando pela linha de cima*/
+		/*background: #CCCCCC; tinha sido adicioando apenas como visuzalição do elemento */
+		margin: 0 1.5%;
+		padding: 30px 20px;
+		box-sizing: border-box; /*corrigindo a proporção de largura dos elementos + padding. O padding (20px) agora está dentro da largura do item (30%)*/
+}
 
 </script>

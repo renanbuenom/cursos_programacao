@@ -10,7 +10,7 @@ header {
 }
 
 nav {
-	position: absolute;
+	position: absolute; /*pode ser posicionado em qualquer lugar da página*/
 	top: 110px;
 	right: 0px;
 }
@@ -28,10 +28,15 @@ nav a {
 	text-decoration: none;
 }
 
+nav a:hover { /*quando o mouse estiver sobre o link de navegação*/
+	color: #C78C19;
+	text-decoration: underline; /*sublinhado*/
+}
+
 .produtos {
 	width: 940px;
 	margin: 0 auto;
-	padding: 50px 0; /*melhorando o posicionamento, criando uma margem*/
+	padding: 50px 0; /*melhorando o posicionamento, criando uma margem interna superior e inferior*/
 }
 
 .produtos li {
@@ -40,9 +45,24 @@ nav a {
 	width: 30%; /*largura divida igualmente nos produtos (1/3)*/
 	vertical-align: top; /*alinhando pela linha de cima*/
 	/*background: #CCCCCC; tinha sido adicioando apenas como visuzalição do elemento */
-	margin: 0 1.5%;
+	margin: 0 1.5%; /*margem de 1.5% nas laterais direita e esquerda*/
 	padding: 30px 20px;
 	box-sizing: border-box; /*corrigindo a proporção de largura dos elementos + padding. O padding (20px) agora está dentro da largura do item (30%)*/
+	border: 2px solid #000000; /*tamanho - tipo - cor da borda*/
+	border-radius: 10px; /*arredondamento da borda com círculo de raio 10px*/
+}
+
+.produtos li:hover { /*quando o mouse estiver em cima dos itens da lista*/
+	border-color: #C78C19;
+}
+
+
+.produtos li:active { /*quando clicar em algum produto da lista*/
+	border-color: #088C19
+}
+
+.produtos li:hover h2 { /* quando o mouse estiver em cima de um produto da lista, alterar a propriedade do h2 (especificada abaixo)*/
+	font-size: 40px;
 }
 
 .produtos h2 {

@@ -60,6 +60,42 @@ Anotações do curso de HTML e CSS3 parte 1
 		margin: 0 1.5%;
 		padding: 30px 20px;
 		box-sizing: border-box; /*corrigindo a proporção de largura dos elementos + padding. O padding (20px) agora está dentro da largura do item (30%)*/
-}
+		border-color: #000000;
+		border-width: 2px;
+		border-style: solid;
+		}
 
+	> 5.2 Bordas
+
+		Está entre o padding (margem interna) e o margin (margem externa)
+
+		3 aspectos importantes:
+			Tamanho - border-width
+				border-top-width: 10px; //exemplo de tamanho do topo da border
+			Tipo - border-style
+				solid;
+				dashed;
+				dotted;
+			Cor - border-color
+
+			UNIFICADO:
+			border: 2px solid #000000 //tamanho - tipo - cor
+
+		Bordas arredondadas:
+			border-radius: 10px //transforma os 4 cantos em 1/4 de círculo de 10px de raio
+				border-top-left //somente canto superior esquerdo
+				border-top-right
+				border-botton-left
+				border-botton-right
+
+		> 6.2 Pseudo-classes de estado //Mapear o comportamento do usuário ao navegar pelo site, usando apenas HTML e CSS.
+
+			hover // quando o mouse está sobre algo
+			a:houver //quando o mouse está sobre o link (ancor)
+			nav a:houver //quanod o mouse está sobre o link da navegação
+			active //quando o mouse está com o botão esquerdo clicado
+
+				.produtos li:hover h2 { /* quando o mouse estiver em cima de um produto da lista, alterar a propriedade do h2 (especificada abaixo)*/
+					font-size: 40px;
+				}
 </script>

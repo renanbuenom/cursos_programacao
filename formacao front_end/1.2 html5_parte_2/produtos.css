@@ -80,3 +80,14 @@ nav a:hover { /*quando o mouse estiver sobre o link de navegação*/
 	margin-top: 10px;
 }
 
+footer { /*rodapé*/
+	text-align: center;
+	background: url("bg.jpg"); /*inserção de imagem de fundo*/
+	padding: 40px 0;
+}
+
+.copyright { /*configurando o texto do rodapé*/
+	color: #FFFFFF;
+	font-size: 13px;
+	margin: 20px 0;
+}

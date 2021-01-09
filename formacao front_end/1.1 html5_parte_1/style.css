@@ -23,8 +23,9 @@ p {
 	text-align: center;
 }
 
-#missao {
+#missao { /*id*/
 	font-size: 20px;
+	padding: 20px; /*adicionado depois do curso parte 2*/
 }
 
 em strong {
@@ -49,4 +50,16 @@ ul {
 
 .imagembeneficios {
 	width: 50%;
+}
+
+footer { /*rodapé*/ /*adicionado depois do curso parte 2*/
+	text-align: center;
+	background: url("../1.2 html5_parte_2/bg.jpg"); /*inserção de imagem de fundo*/
+	padding: 40px 0;
+}
+
+.copyright {
+	color: #FFFFFF;
+	font-size: 13px;
+	margin: 20px 0;
 }

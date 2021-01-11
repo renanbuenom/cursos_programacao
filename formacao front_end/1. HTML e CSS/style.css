@@ -91,3 +91,26 @@ footer { /*rodapé*/
 	font-size: 13px;
 	margin: 20px 0;
 }
+
+main { /*melhorando o espaçamento do formulário todo, que está inserido no main*/
+	width: 940px;
+	margin: 0 auto;
+}
+
+form { /* inserindo margem para que tenha um espaço entre o cabeçalho e o rodapé.*/
+	margin: 40px 0;
+}
+
+form label { /*Como padrão o form é display:inline. Alterando aqui para block, 
+	para que ocupe a largura toda da página e fique cada um em uma só linha*/
+	display: block;
+	font-size: 20px;
+	margin: 0 0 10px; /*margem (espaçamento externo) para baixo de 10px;*/
+}
+
+form input {
+	display: block;
+	margin: 0 0 20px;
+	padding: 10px 15px; 
+	width: 50%;
+}

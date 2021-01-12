@@ -25,32 +25,42 @@
 		<main>
 			<form> <!-- tag Formulário -->
 				<label for="nomesobrenome">Nome e Sobrenome</label> <!-- Etiqueta para o formulário. Sempre entra junto com o input. Sempre usar em par o "for" + "id"-->
-				<input type="text" id="nomesobrenome"> <!-- Entrada de informação, sempre mencionando o tipo da entrada. Normalmente tem o identificador único (id), junto com o "for" em "label"--> 
+				<input type="text" id="nomesobrenome" class="input-padrao"> <!-- Entrada de informação, sempre mencionando o tipo da entrada. Normalmente tem o identificador único (id), junto com o "for" em "label"--> 
 
 				<label for="email">Email</label>
-				<input type="text" id="email">
+				<input type="text" id="email" class="input-padrao">
 
 				<label for="telefone">Telefone</label>
-				<input type="text" id="telefone">
+				<input type="text" id="telefone" class="input-padrao">
 
 				<label for="mensagem">Mensagem</label>
-				<textarea cols="70" rows="10" id="mensagem"></textarea> <!-- Tag de conteúdo, diferente do input (entrada simples de texto). Possibilidade de colocar um conteúdo complexo, com mais de uma linha. "cols" = colunas, rows = linhas. O tamanho da caixa vamos configurar no css.-->
+				<textarea cols="70" rows="10" id="mensagem" class="input-padrao"></textarea> <!-- Tag de conteúdo, diferente do input (entrada simples de texto). Possibilidade de colocar um conteúdo complexo, com mais de uma linha. "cols" = colunas, rows = linhas. O tamanho da caixa vamos configurar no css.-->
 
 				<div> <!-- Divisão para organização do código. O que está aqui dentro se refere ao mesmo conteúdo do código -->
 					<p>Como prefere o nosso contato?</p>
 					<!-- Caixas de Seleção >> RADIO -->
-					<label for="radio-email">Email</label>
-					<input type="radio" value="email" name="contato" id="radio-email"> <!-- Radio box = Caixa de seleção. O value é valor do input e não aparece na site, o texto deve ser inserido no label
+					<label for="radio-email"><input type="radio" value="email" name="contato" id="radio-email">Email</label>
+					 <!-- Radio box = Caixa de seleção. O value é valor do input e não aparece na site, o texto deve ser inserido no label
 					"name" serve para que seja integrado todos os radios, não deixando o usuário marcar mais de uma opção -->
 
-					<label for="radio-telefone">Telefone</label>
-					<input type="radio" value="telefone" name="contato" id="radio-telefone">
+					<label for="radio-telefone"><input type="radio" value="telefone" name="contato" id="radio-telefone">Telefone</label> <!--alteramos a posição do input para antes do "Telefone", para que inverta as posições. -->
+					
 
-					<label for="radio-whatsapp">WhatsApp</label>
-					<input type="radio" value="whatsapp" name="contato" id="radio-whatsapp">
+					<label for="radio-whatsapp"><input type="radio" value="whatsapp" name="contato" id="radio-whatsapp">WhatsApp</label>
+					
 				</div>
 
-				<label><input type="checkbox">Gostaria de receber nossas novidades por email?</label> <!-- 
+				<div>
+					<p>Qual horário prefere ser atendido?</p>
+					<!-- Seletor de opções -->
+					<select> 
+						<option>Manhã</option>
+						<option>Tarde</option>
+						<option>Noite</option>
+					</select> 
+				</div>
+
+				<label class="checkbox"><input type="checkbox">Gostaria de receber nossas novidades por email?</label> 
 
 
 				<input type="submit" value="Enviar formulário"> <!-- Todo formulário tem um input submit, para enviar as informações para algum lugar. Value para informar ao usuário a informação para enviar os valores inseridos-->

@@ -101,16 +101,20 @@ form { /* inserindo margem para que tenha um espaço entre o cabeçalho e o roda
 	margin: 40px 0;
 }
 
-form label { /*Como padrão o form é display:inline. Alterando aqui para block, 
+form label, form p { /*Como padrão o form é display:inline. Alterando aqui para block, 
 	para que ocupe a largura toda da página e fique cada um em uma só linha*/
 	display: block;
 	font-size: 20px;
 	margin: 0 0 10px; /*margem (espaçamento externo) para baixo de 10px;*/
 }
 
-form input {
+.input-padrao { /* Antes era "form input, form textarea{" fazendo com que o textarea tenha as mesmas configurações do input*/
 	display: block;
 	margin: 0 0 20px;
 	padding: 10px 15px; 
 	width: 50%;
+}
+
+.checkbox { /*Adicionando espaçameno superior e inferior do checkbox, para descolar dos itens*/
+	margin: 20px 0; 
 }

@@ -101,7 +101,7 @@ form { /* inserindo margem para que tenha um espaço entre o cabeçalho e o roda
 	margin: 40px 0;
 }
 
-form label, form p { /*Como padrão o form é display:inline. Alterando aqui para block, 
+form label, form legend { /*Como padrão o form é display:inline. Alterando aqui para block, 
 	para que ocupe a largura toda da página e fique cada um em uma só linha*/
 	display: block;
 	font-size: 20px;
@@ -117,4 +117,21 @@ form label, form p { /*Como padrão o form é display:inline. Alterando aqui par
 
 .checkbox { /*Adicionando espaçameno superior e inferior do checkbox, para descolar dos itens*/
 	margin: 20px 0; 
+}
+
+.enviar {
+	width:40%;
+	padding:  15px 0;
+	background: orange;
+	color: white;
+	font-weight: bold;
+	font-size: 18px;
+	border: none; /*retirando a borda padrão*/
+	border-radius: 5px;
+	transition: 1s background; /*fazendo com que a transição de cores seja mais suave e não instantânea*/
+	cursor: pointer; /*alterando o cursor para a "mãozinha", mostrando que é clicável*/
+}
+
+.enviar:hover {
+	background: darkorange;
 }

@@ -27,6 +27,9 @@ PÁGINA DE PRODUTOS -- produtos.html
 
 	reset.css //arquivo padrão usado para RESETAR as mudanças que o navegador faz no visual do site, como margens e etc.
 	<link rel="stylesheet" href="reset.css"> //IMPORTANTE: deve ser adicionado antes do "produtos.css", pois deve resetar antes de aplicar o nosso css.
+		rel = link relation, é o tipo do link. Nesse caso, uma "planilha de estilo" stylesheet.
+		href = especifica a localização, muito usado a URL.
+
 
 	> 3.5 Posicionamento
 
@@ -128,7 +131,7 @@ Formulário - sempre que passamos uma informação para outra página, é chamad
 <TAG> = 1: muito genérico
 <class> = 10: boa utilização, nem tão genérico, nem tão especifico
 <id> = 100: mais especifico, o mais forte das tags
-<"inline"> = inserido dentro do elemento, mais especifico ainda que o <id>.
+<"inline"> = propriedade inserida dentro do elemento, mais especifico ainda que o <id>.
 
 Quando tivermos sobreposição de configurações no css, existe a sequência de forças acim, em que a maior delas vai determinar qual configuração vai ser aplicada a um elemento "repetido";
 
@@ -153,7 +156,25 @@ http://mobileinputtypes.com/
 	type="number"
 	type="password"
 	...
+//muitos desses inputs não alteram a visualização para quem está usando pc, mas melhora muito a experiência de quem usa o celular.
 
+> Campos Obrigatórios
+
+<input [...] required>
+
+> Sugestão de Preenchimento
+
+<input [...] placeholder="mensagem"> //exemplo de preenchimento meio apagado no campo
+
+No checkbox e em radio:
+<input [...] checked> //marcar qual opção deseja que seja inicialmente preenchida.
+
+> Melhorando a semântica
+
+<fieldset> utilizar no lugar de <div>
+<legend> utilizar no lugar de <p>
+
+alt = "mensagem" //alt = alteranativa para acessibilidade. Na falta de reproduzir a imagem, aparecerá a mensagem.
 
 
 </script>			

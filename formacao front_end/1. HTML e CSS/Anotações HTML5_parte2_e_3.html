@@ -176,5 +176,26 @@ No checkbox e em radio:
 
 alt = "mensagem" //alt = alteranativa para acessibilidade. Na falta de reproduzir a imagem, aparecerá a mensagem.
 
+transform: //propriedade do comando do CCS3 que transforma uma série propriedades do elemento
+	transform: scale(1.2) //altera a escala do elemento proporcionalmente
+	transform: rotate(70deg); //rotacionar 70° (se adicionasse um após o outro, o segundo iria sobescrever o anterior)
+	transform: scale(1.2) rotate(70deg) //dessa forma ele aceitaria os dois comandos para transform.
+
+>TABELA
+<table>
+
+LINHA: <tr>: table roll
+CÉLULA: <td>: table ??
+As tags <thead>, <tbody> e <tfoot> ajudam a deixar o conteúdo da tabela mais bem dividido e mais semântico.
+	<td colspan="5">"texto" //mescla as células em 5 colunas
+
+Resumo:
+A tag table, que representa a tabela
+A tag tr, que representa a linha da tabela
+A tag td, que representa a célula da tabela
+A tag thead, que representa o cabeçalho da tabela
+A tag tbody, que representa o corpo da tabela
+A tag th, que representa a célula do cabeçalho da tabela
+A tag tfoot, que representa o rodapé da tabela
 
 </script>			

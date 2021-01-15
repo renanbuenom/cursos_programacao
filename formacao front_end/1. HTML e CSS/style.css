@@ -128,10 +128,28 @@ form label, form legend { /*Como padrão o form é display:inline. Alterando aqu
 	font-size: 18px;
 	border: none; /*retirando a borda padrão*/
 	border-radius: 5px;
-	transition: 1s background; /*fazendo com que a transição de cores seja mais suave e não instantânea*/
+	/*transition: 1s background; /*fazendo com que a transição de cores seja mais suave e não instantânea*/
+	transition: 1s all; /*alterado para que atinja todas as alterações, com o transform abaixo*/
 	cursor: pointer; /*alterando o cursor para a "mãozinha", mostrando que é clicável*/
 }
 
 .enviar:hover {
 	background: darkorange;
+	transform: scale(1.2);
+}
+
+table {
+	margin: 20px 40px; /*espaçando do botão e do rodapé*/
+
+}
+
+thead {
+	background: #555555;
+	color: white;
+	font-weight: bold;
+}
+
+td, th {
+	border: 1px solid #000000;
+	padding: 8px 15px;
 }

@@ -1,6 +1,6 @@
 <script>
 
-<Anotações do curso de HTML e CSS3 parte 1>
+<Anotações do curso de HTML e CSS3 parte 2>
 PÁGINA DE PRODUTOS -- produtos.html
 
 > 2.2 Estruturando a Navegação
@@ -121,7 +121,7 @@ PÁGINA DE PRODUTOS -- produtos.html
 
 
 ----------------------------------------
-<Anotações do curso de HTML e CSS3 parte 2>
+<Anotações do curso de HTML e CSS3 parte 3>
 PÁGINA DE CONTATO -- contato.html
 
 Formulário - sempre que passamos uma informação para outra página, é chamado de formulário.
@@ -129,9 +129,11 @@ Formulário - sempre que passamos uma informação para outra página, é chamad
 
 > HIERARQUIA dos identificadores no CSS
 <TAG> = 1: muito genérico
-<class> = 10: boa utilização, nem tão genérico, nem tão especifico
+<class> = 10: boa utilização, nem tão genérico, nem tão especifico.
 <id> = 100: mais especifico, o mais forte das tags
 <"inline"> = propriedade inserida dentro do elemento, mais especifico ainda que o <id>.
+
+"Sempre que queremos falar de estilo, usamos <class>, quando falamos em comportamento, usamos <id>"
 
 Quando tivermos sobreposição de configurações no css, existe a sequência de forças acim, em que a maior delas vai determinar qual configuração vai ser aplicada a um elemento "repetido";
 
@@ -197,5 +199,80 @@ A tag thead, que representa o cabeçalho da tabela
 A tag tbody, que representa o corpo da tabela
 A tag th, que representa a célula do cabeçalho da tabela
 A tag tfoot, que representa o rodapé da tabela
+
+----------------------------------------
+<Anotações do curso de HTML e CSS3 parte 4>
+REFAZENDO A PÁGINA INICIAL
+
+> Seções
+	<div> divisão visual
+	<section> divisão onde se tem um conteúdo complexo, todo semânticamente tem o mesmo sentido, para um mesmo conteúdo
+
+>Nomes de classes:
+	título-centralizado // nome ruim, da uma propriedade para o título, sendo que isso é função do css.
+		título-principal // melhor utilização, dessa forma podemos alterar o estilo conforme desejarmos, sem alterar o html.
+
+	Um balanço é a melhor alternativa. Nem tão específica, para poder repetir as classes, e nem tão genérica, para poder não precisar combinar classes.
+
+>Medidas proporcionais no CSS
+	em: medida proporcional para pixels.
+		2em: se a fonte base for 15px, esse valor será 30px.
+
+	margin: 0 0 1em; //sempre interessante usarmos um espaçamento que seja proporcional ao tamanho da fonte. Para que a forma de leitura seja mais fácil.
+
+>FLOAT
+
+	O elemento descola da página, mas o espaço continua sendo ocupado. Os parágrafos sobem, porém não entram em baixo do elemento, respeitam a "sombra" dele.
+
+	"Tanto o float:left quanto o float: right servem para que o elemento se destaque na tela, deixe de ocupar o espaço em que estava, para que os outros elementos possam se posicionar ao redor dele"
+
+	float: <lado>
+		float: left;
+
+	Todos os elementos abaixo são afetados por ele.
+	Para isso não acontecer, utilizar:
+		clear: <lado>;
+			clear: left;
+
+>2.2 Fontes Externas
+
+	Fontes preparadas para web tende a funcionar melhor, em todos os navegadores
+	Fontas abertas e públidas: fonts.google.com
+		copiar o  link href da fonte e colar no <head> da página.
+		No CSS, colocar e body, para aplicar para a página toda
+			font-family: 'fonte', sans-serif (alternativa para a fonte (padrão))
+
+>Mapa e vídeo
+
+<iframe> tag que cria uma janela, e o mapa ou vídeo dentro dela busca usando o src="link"
+	pode ser usado com vídeo, página de facebook e etc.
+
+Para editar o elemento no css, a melhor forma é criando uma <div> e class para indicar no css.
+
+> 3.2 Pseudo-classes
+
+:hover :active :visited :required
+
+:first-child //primeiro item 
+:last-child //último item
+:nth-child(número) //qualquer posição da lista
+	:nth-child(2n) //valores pares
+
+>3.3 Aplicando gradientes (degradê)
+
+	background: linear-gradient(cor1,cor2,...);
+		background: linear-gradient(*inclinação (45deg)*, cor1,cor2,...); //alterando a inclinação do gradiente
+				background: linear-gradient(90deg, orange 50%, blue 25%, red 25%) //alterando a inclinação do gradiente
+	background: radial-gradient(cor1, cor2,...);
+
+
+> 3.5 Pseudo-elementos
+
+	:first-letter; //na primeira letra do elemento;
+	:first-line; //na primeira linha;
+	:before;
+		content:"["; //adiciona um conteúdo qualquer "antes" do elemento;
+	:after;
+		content: "]"; //depois do elemento;
 
 </script>			

@@ -275,4 +275,46 @@ Para editar o elemento no css, a melhor forma é criando uma <div> e class para 
 	:after;
 		content: "]"; //depois do elemento;
 
+> 4.2 Seletores avançados
+
+	main > p {} //seleciona os parágrafos que são "filhos" diretos de "main", ou seja, não estão dentro de uma "section", por exemplo;
+	img + p //seleciona o PRÓXIMO parágrafo "irmão" que vem logo após uma "img";
+	img ~ p //seleciona TODOS os "irmãos" parágrafos que vem depois de "img";
+	.principal p: not(#missao) //todos os parágrafos (p) que estão dentro da classe (principal) e NÃO SÃO do id "missão".
+
+> 4.3 Calculando no CSS
+
+	width: calc(40% - ((26px * 4) / 4));
+
+> 5.2 Opacidade dos elementos e cores
+
+	opacity: 0.7; //de 0 a 1, sendo o 0 opacidade máxima, e 1 mínima.
+		transition: 400ms; 
+	rgba (0,0,0,*opacity*) // rgb alfa: determina a opacidade dentro após a definição de cores no rgb.
+
+> 5.4 Sombras
+
+	box-shadow: X Y *blur* *itensidade da borda* *cor*, [sombra2], [sombra3],... //blur = grau de "espalhamento", de sólido para transparente;
+		box-shadow: 10px 10px 5px 20px #000000, //5px do blur: os últmos 5px ele trasforma vai de preto a transparente;
+			-10px -10px yellow, -20px 0px rgba(255,0,0,0.5); 
+		box-shadow: inset 0 0 30px #FF0000;//sombra interna
+		 
+	text-shadow: X Y *blur* *intensidade da borda* *cor,...;
+
+> 6.2 Mobile: Meta tag de Viewport
+
+	dpi: densidade de pixels por polegadas
+	Largura de celulares: padrão 320px por polegadas.
+
+	<meta name="viewport" content="width=device-width">
+		viewport: quantidade de pixels que tem na visualização da tela
+		width = device-width: a largura do conteúdo é igual à largura do dispositivo
+
+	MEDIA QUERYS
+	@media screen and (max-width: 480px) {
+		body{}
+	}
+
+	Tomar cuidado com as larguras dos elementos, como por exemplo, o video. Alterar para largura 100% para não dificultar a visualização mobile.
+
 </script>			

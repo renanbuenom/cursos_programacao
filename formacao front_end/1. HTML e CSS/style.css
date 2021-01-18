@@ -167,6 +167,8 @@ td, th {
 	font-size: 2em;
 	margin: 0 0 1em; /*margem do mesmo tamanho da fonte dela, que é 2x tamanho padrão. */
 	clear: left; /* limpa o float a esquerda */
+	color: rgba(0,0,0,0,3);
+	text-shadow
 }
 
 .titulo-principal:before {
@@ -247,9 +249,35 @@ td, th {
 
 .imagem-beneficios {
 	width: 60%;
+	opacity: 1;
+	transition: 400ms;
+	box-shadow: 10px 10px 20px 0px #000000;
+}
+
+.imagem-beneficios:hover {
+	opacity: 0.8;	
 }
 
 .video {
 	width: 560px;
 	margin: 2em auto; /* vai centralizar o vídeo */
 }
+
+/* Configurando para MOBILE */
+@media screen and (max-width: 480px) { /*para telas que tenham largura máxia de 480px. Abaixo vamos alterar somente o que queremos mudar*/
+		.caixa, .principal, .conteudo-beneficios, .mapa-conteudo, .video {
+			width: auto; 
+		}
+
+		h1 {
+			text-align: center; /* centralizando a logo */
+		}
+
+		nav {
+			position: static; /* antes estava absoluto, mas estava sobrepondo com a logo */
+		}
+
+		.lista-beneficions, .imagem-beneficios { /* estava muito apertado, alterado agora para cada um ficar em uma linha */
+			width: 100%;
+		}
+	}

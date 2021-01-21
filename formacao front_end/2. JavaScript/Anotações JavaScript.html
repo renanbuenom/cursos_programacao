@@ -9,7 +9,12 @@ PowerShell
 
 REPL: ambiente de programação que recebe entradas, executa e retorna o resultado ao usuário.
 
+*ATALHOS*
 shit + alt + seta p/ baixo (ou p/ cima) = copia a linha de atual;
+ctrl + k + c = transforma as linhas selecionas em comentários;
+ctrl + k + u = retira os comentários;
+alt + shit + f = formata o arquivo;
+
 
 JavaScript é case sensitive: faz diferença maiúscula e minúscula;
 Padrão camelCase: começar a sequência de palavras com letra minúscula e as demais començando com letra maiúscula;
@@ -24,12 +29,45 @@ parseFloat() = ponto flutuante: número decimal;
 Atribuição de Variáveis:
 
 const = variável constante;
-let = variável comum, pode variar;
+let = variável comum, podem variar;
 
 Boa prática: atribuir a variável como const, para que ela não seja alterada. 
 Assim como o tipo da variável, uma vez definida como string ou etc, manter. Pois, mudança de estado na programação pode 
 dar erro e é difícil de debuggar.
+Gerenciamento de estado fica complicado se utilizado muito o let, é melhor usar o const.
 
-Boa prática: nome variáveis bem claras, mesmo que fique longas. Por exemplo, não utilizar nome, mas sim nomeCompleto ou
+Boa prática: nome de variáveis bem claras, mesmo que fique longas. Por exemplo, não utilizar nome, mas sim nomeCompleto ou
 primeiroNome;
 
+<> 6 - Lista
+const ... = new Array(<variável>);
+
+<variável>.push(`itemX`) //adiciona elemento na lista dinamicamente
+<variável>.splice(*posição inicial*,*quantidade de elementos*);
+    ex. <variável>.splice(2,1)
+    (contagem de índice se inicia no 0;)
+
+console.log(<variável>[1]) //imprime o elemento da posição 1;
+
+*Pesquisa: Array JS no google
+    developer.mozilla.org
+
+*Palavras reservadas à linguagem: são palavras que são comandos da linguagem, como, por exemplo, "new".
+    Caso utilize pra declarar uma variável, vai dar um erro de sintaxe: SyntaxError.
+
+<> 7 - Condicionais
+
+if (condição) {
+    ...
+}else {
+    ...
+}
+
+*Operadores Lógicos*: <, >, <=, >=, == (comparar igualdade)
+|| = ou
+&& = e
+
+Boa prática: evitar duplicidade de comandos, não executando ele em dois lugares diferentes, como por exemplo no if,
+    e depois no else if, etc..
+
+\n = pula linha. Pode ser colocada dentro do console.log("... \n"), por exemplo.

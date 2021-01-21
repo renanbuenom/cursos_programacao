@@ -13,3 +13,8 @@ nome = nome + sobrenome; //operação sobescrita, já que está alterando seu va
 //Exemplo de variável mutável:
 let contador = 0;
 contador = contador + 1;
+
+let idade; //declarando variável
+idade = 26; //atribuindo valor
+idade = idade + 1;
+console.log(idade);

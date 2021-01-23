@@ -34,3 +34,5 @@ if(podeComprar && destinoExiste) {
 } else {
     console.log("Desculpe, tivemos um erro!");
 }
+
+// teste

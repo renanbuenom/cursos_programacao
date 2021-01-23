@@ -24,20 +24,21 @@ console.log(listaDeDestinos);
 // }
 
 //Diminuindo a leitura do código e retirando a duplicidade de comando.
-if (idadeComprador >= 18 || estaAcompanhada) {
-    console.log("Boa viagem!"); //comprou
-    listaDeDestinos.splice(1, 1); //removendo item
+if (idadeComprador >= 18 || estaAcompanhado) {
+    console.log("Aqui está sua passagem!"); //comprou
+    listaDeDestinos.splice(1, 1); //após comprado, remove o destino (item da lista) disponível
+    temPassagemComprada = true;
 } else {
     console.log("Não é maior de Idade, não posso vender a passagem");
+    temPassagemComprada = false;
 }
 
-console.log("Embarque: \n\n")
-if (idadeComprador >= 18 && temPassagemComprada){
+console.log("Embarque: \n") // \n: pular linha
+if ((idadeComprador >= 18 || estaAcompanhado) && temPassagemComprada){
     console.log("Boa viagem!");
 } else {
     console.log("Você não pode embarcar");
 }
-
 
 console.log(listaDeDestinos);
 

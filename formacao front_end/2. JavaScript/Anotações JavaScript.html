@@ -80,6 +80,8 @@ Boa prática: evitar duplicidade de comandos, não executando ele em dois lugare
         if...{}
         else...{}
     }
+    
+    contador ++; //ou contador += 1/ ou contador = contador + 1;
 
 <> 5.4 Break e Debugger
 
@@ -91,3 +93,13 @@ Variables: podemos visualizar as variáveis locais (que definimos no código) e 
 Watch: adicionar variável para ser monitorada;
 
 View > Debug Console // acompanhar a linha do código
+
+
+<> For
+
+for (inicalização; condição; progressão) {}
+    for (let i = 0 ; i < 3 ; i++) { // bem comum a utilização de i como variável progressiva (ao invez do contador)
+        if(listaDeDestinos[i] == destino) {
+            destinoExiste = true;
+            break;
+

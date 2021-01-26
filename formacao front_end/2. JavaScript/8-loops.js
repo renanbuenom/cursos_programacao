@@ -9,7 +9,7 @@ const listaDeDestinos = new Array(
 const idadeComprador = 15;
 const estaAcompanhado = true;
 let temPassagemComprada = false;
-const destino = " Salvador"; //agora lançando a cidade, vamos conferir se tem na listagem disponível
+const destino = "Salvador"; //agora lançando a cidade, vamos conferir se tem na listagem disponível
 
 console.log("\nDestinos possíveis:");
 console.log(listaDeDestinos + "\n");
@@ -33,6 +33,12 @@ if(podeComprar && destinoExiste) {
     console.log("Boa Viagem");   
 } else {
     console.log("Desculpe, tivemos um erro!");
+}
+
+for (let i = 0 ; i < 3 ; i++) {
+    if(listaDeDestinos[contador] == destino) {
+        destinoExiste = true;
+        break;
 }
 
 // teste

@@ -36,9 +36,8 @@ if(podeComprar && destinoExiste) {
 }
 
 for (let i = 0 ; i < 3 ; i++) {
-    if(listaDeDestinos[contador] == destino) {
+    if(listaDeDestinos[i] == destino) {
         destinoExiste = true;
         break;
+    }
 }
-
-// teste

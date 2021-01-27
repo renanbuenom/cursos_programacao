@@ -14,6 +14,8 @@ shit + alt + seta p/ baixo (ou p/ cima) = copia a linha de atual;
 ctrl + k + c = transforma as linhas selecionas em comentários;
 ctrl + k + u = retira os comentários;
 alt + shit + f = formata o arquivo;
+ctrl + b = fecha a lateral;
+ctrl + alt + seta = [NÃO FUNCIONOU] amplifica o cursor de digitação para mais linhas, assim conseguimos editar várias ao mesmo tempo;
 
 
 JavaScript é case sensitive: faz diferença maiúscula e minúscula;
@@ -97,9 +99,42 @@ View > Debug Console // acompanhar a linha do código
 
 <> For
 
-for (inicalização; condição; progressão) {}
+for (inicalização; condição; progressão) {
     for (let i = 0 ; i < 3 ; i++) { // bem comum a utilização de i como variável progressiva (ao invez do contador)
         if(listaDeDestinos[i] == destino) {
             destinoExiste = true;
             break;
+        }
+    }
+}
 
+
+<Anotações do Curso de JavaScript 2: Primeiros passos com a linguagem>
+
+<> CLASSE
+"Classes definem uma forma de organizarmos uma série de informações repetidas no nosso código e por isso devemos usar elas quando temos código que se repete e que faz parte de um contexto coeso."
+
+    class = "molde" onde se define um conjunto de informações padrão que podem ser alimentadas por diversos "cadastros";
+    class Cliente { //escolher um bom nome: claro para que se identifique facilmente seu valor
+        atributo1; //também chamado propriedade, ou property
+        atributo2;
+        ...
+    }
+        class Cliente { 
+        nome;
+        cpf;
+        agencia;
+        saldo;
+        } 
+
+        const cliente1 = new Cliente();  
+
+        cliente1.Nome = "Renan";   //referenciado como *variável1*.*atributo1*...
+        cliente1.CPF = 11122233309;
+        cliente1.Agencia = 1001;
+        cliente1.Saldo = 0;
+
+<> OBJETO  
+
+    NEW = novo objeto a partir do molde (classe)/ instânciando a classe / é uma instância da classe
+        const cliente1 = new Cliente();  

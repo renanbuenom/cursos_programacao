@@ -1,29 +1,41 @@
 class Cliente { 
     nome;
-    cpf;
-    agencia;
-    saldo;
+    cpf;  
 } 
 
-const cliente1 = new Cliente();
-const cliente2 = new Cliente();
-const cliente3 = new Cliente();
+class ContaCorrente {
+    agencia;
+    #saldo = 0; /*adicionado a # no código para que ele seja *privado*. Ou seja, só pode ser alterado por operações da classe
+    definir inicialmente como 0, para que ele tenha um valor inicial */
 
+    sacar (valor) {  //*comportamento* de saque. encapsulado dentro da classe
+        if (this.#saldo >= valor) { //this = variável que estamos trabalhando no momento, de maneira gerérica.
+            this.#saldo -= valor;
+        }       
+    }
+
+    depositar (valor) { //"{" abre o escopo do . "valor" é *parâmetro* (ou argumento) e "depositar" é *método (ou função)*
+        if (valor > 0) {
+            this.#saldo += valor;
+        }
+    }
+}
+
+const cliente1 = new Cliente();
 cliente1.nome = "Renan";
 cliente1.cpf = 11122233309;
-cliente1.agencia = 1001;
-cliente1.saldo = 0;
 
+const cliente2 = new Cliente();
 cliente2.nome = "Gra";
 cliente2.cpf = 88822233309;
-cliente2.agencia = 1001;
-cliente2.saldo = 0;
 
-cliente3.nome = "Dri";
-cliente3.cpf = 77722233309;
-cliente3.agencia = 1001;
-cliente3.saldo = 0;
+const contaCorrenteRenan = new ContaCorrente();
+/*contaCorrenteRenan.saldo = 0; -- linha retirada do código. Precisamos proteger o saldo para que não haja interferência direta nela,
+sem que passe pelos padrões de comportamento que criamos dentro da classe. */
+contaCorrenteRenan.agencia = 1001;
 
-console.log(cliente1);
-console.log(cliente2);
-console.log(cliente3);
+contaCorrenteRenan.depositar(100);
+contaCorrenteRenan.sacar(50);
+
+console.log(contaCorrenteRenan);
+

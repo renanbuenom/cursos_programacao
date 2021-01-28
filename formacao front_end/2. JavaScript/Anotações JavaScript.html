@@ -138,3 +138,35 @@ for (inicalização; condição; progressão) {
 
     NEW = novo objeto a partir do molde (classe)/ instânciando a classe / é uma instância da classe
         const cliente1 = new Cliente();  
+
+<> Comportamento: Função e Método
+
+Função e método são termos sinônimos e que nós ajudam a criar um vocabulário mais rico dentro do nosso sistema.
+Um método pode receber qualquer quantidade de parâmetros.
+Um método define o comportamento ou a maneira de fazer algo.
+
+class ContaCorrente {
+    agencia;
+    #saldo = 0; /*adicionado a # no código para que ele seja *privado*. Ou seja, só pode ser alterado por operações da classe.
+    definir inicialmente como 0, para que ele tenha um valor inicial */
+
+    sacar (valor) {  //*comportamento* de saque. encapsulado dentro da classe
+        if (this.#saldo >= valor) { //this = variável que estamos trabalhando no momento, de maneira gerérica.
+            this.#saldo -= valor;
+        }       
+    }
+
+    depositar (valor) { //"{" abre o escopo do . "valor" é *parâmetro* (ou argumento) e "depositar" é *método*
+        if (valor > 0) {
+            this.#saldo += valor;
+        }
+    }
+}
+
+
+
+<> Atributos privados
+
+Sugestão de um desenvolvedor e já aplicado no Node: utilzar a # antes da variável (como no exemplo acima).
+Porém, como ainda não está em vigor, não é "legal".
+Hoje a convenção é utilizar o _ antes da variável, para que a comunidade de desenvolvedores saiba que é um atributo privado.

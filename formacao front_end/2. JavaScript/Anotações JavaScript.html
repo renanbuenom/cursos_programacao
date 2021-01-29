@@ -14,8 +14,9 @@ shit + alt + seta p/ baixo (ou p/ cima) = copia a linha de atual;
 ctrl + k + c = transforma as linhas selecionas em comentários;
 ctrl + k + u = retira os comentários;
 alt + shit + f = formata o arquivo;
-ctrl + b = fecha a lateral;
+ctrl + b = abre/fecha a lateral;
 ctrl + alt + seta = [NÃO FUNCIONOU] amplifica o cursor de digitação para mais linhas, assim conseguimos editar várias ao mesmo tempo;
+ctrl + j = abre terminal;
 
 
 JavaScript é case sensitive: faz diferença maiúscula e minúscula;
@@ -145,28 +146,78 @@ Função e método são termos sinônimos e que nós ajudam a criar um vocabulá
 Um método pode receber qualquer quantidade de parâmetros.
 Um método define o comportamento ou a maneira de fazer algo.
 
-class ContaCorrente {
+<Arquivo ContaCorrente.js>
+export class ContaCorrente {
     agencia;
-    #saldo = 0; /*adicionado a # no código para que ele seja *privado*. Ou seja, só pode ser alterado por operações da classe.
+    cliente;
+
+    // #saldo =0 https://github.com/tc39/proposal-class-fields#private-fields
+    _saldo = 0; /*adicionado a # no código para que ele seja *privado*. Ou seja, só pode ser alterado por operações da classe
     definir inicialmente como 0, para que ele tenha um valor inicial */
 
     sacar (valor) {  //*comportamento* de saque. encapsulado dentro da classe
-        if (this.#saldo >= valor) { //this = variável que estamos trabalhando no momento, de maneira gerérica.
-            this.#saldo -= valor;
+        if (this._saldo >= valor) { //this = variável que estamos trabalhando no momento, de maneira gerérica.
+            this._saldo -= valor;
+            return valor; //somente retornando é que uma função utilizando o "sacar" vai ter um conteúdo "disponível". Caso contrário, seria "undefined".
         }       
     }
 
-    depositar (valor) { //"{" abre o escopo do . "valor" é *parâmetro* (ou argumento) e "depositar" é *método*
-        if (valor > 0) {
-            this.#saldo += valor;
+    depositar (valor) { //"{" abre o escopo do . "valor" é *parâmetro* (ou argumento) e "depositar" é *método (ou função)*
+        if (valor <= 0) { //cláusulas de proteção. 
+             return; /*Early return>: encerrando a operação para que se a clásula for verdadeira, não continua.
+             Dessa forma o código fica mais legível. Caso ele ficasse muito longo, com ifs dentro de ifs, a operação final ficaria muito longe, a direita. */
         }
+
+        this._saldo += valor;
     }
+
+    transferir (valor, conta) {
+        const valorSacado = this.sacar(valor);
+        conta.depositar(valorSacado);
+    }
+
 }
 
-
+return: sempre encerra a operação (parecido com o break).
 
 <> Atributos privados
 
 Sugestão de um desenvolvedor e já aplicado no Node: utilzar a # antes da variável (como no exemplo acima).
 Porém, como ainda não está em vigor, não é "legal".
 Hoje a convenção é utilizar o _ antes da variável, para que a comunidade de desenvolvedores saiba que é um atributo privado.
+
+<> 3.2 Módulos JavaScript
+
+"Criamos módulos para compartilhar código entre os diferentes arquivos do meu sistema, ajudando na organização dele."
+
+Ideal que se tenha um arquivo JS por classe. Convenção: no nome do arquivo escrever o nome da classe em maiúscula: Cliente.js
+Arquivo index.js acaba sendo apenas a execução do código.
+
+import {Cliente} from "./Cliente.js" //caminho relativo. Em alguns casos é bom utilizar o caminho completo do arquivo.
+
+Em Cliente: 
+export class Cliente {...}
+
+<> Configurando o package.json
+CTRL + J = Abre o terminal
+    npm init
+    ...
+    package name: bytebank
+    version: 
+    description: Projeto do bytebank para seus clientes
+    entry point: (index.js) //index vira o arquivo princial "main. alterado até a cor na lateral esquerda <-
+    test command:
+    git repository:
+    keywords:
+    author: Renan
+    license: "ISC" //padrão
+
+    No final ele cria um arquivo "package.json"
+        Adicionar mais uma linha:
+        "type": "module" //acrescentado para o index identificar como módulo
+
+> PACKAGE.JSON
+https://cursos.alura.com.br/course/javascritpt-orientacao-objetos/task/73639
+    É um organizador de gerenciadores de pacote: pense neles como um lugar centralizado onde toda a comunidade pode subir e 
+    compartilhar códigos para que outros desenvolvedores usem.
+    Com ele é fácil de saber qual a versão do pacote, o nome dele, quem fez aquele código etc.

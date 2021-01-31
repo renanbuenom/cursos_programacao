@@ -42,7 +42,7 @@ Gerenciamento de estado fica complicado se utilizado muito o let, é melhor usar
 Boa prática: nome de variáveis bem claras, mesmo que fique longas. Por exemplo, não utilizar nome, mas sim nomeCompleto ou
 primeiroNome;
 
-<> 6 - Lista
+6- <Lista>
 const ... = new Array(<variável>);
 
 <variável>.push(`itemX`) //adiciona elemento na lista dinamicamente
@@ -58,7 +58,7 @@ console.log(<variável>[1]) //imprime o elemento da posição 1;
 *Palavras reservadas à linguagem: são palavras que são comandos da linguagem, como, por exemplo, "new".
     Caso utilize pra declarar uma variável, vai dar um erro de sintaxe: SyntaxError.
 
-<> 7 - Condicionais
+7 - <Condicionais>
 
 if (condição) {
     ...
@@ -77,7 +77,7 @@ Boa prática: evitar duplicidade de comandos, não executando ele em dois lugare
 
 \n = pula linha. Pode ser colocada dentro do console.log("... \n"), por exemplo.
 
-<> While
+<While>
 
     while(*condição de loop*){
         if...{}
@@ -86,7 +86,7 @@ Boa prática: evitar duplicidade de comandos, não executando ele em dois lugare
     
     contador ++; //ou contador += 1/ ou contador = contador + 1;
 
-<> 5.4 Break e Debugger
+5.4 <Break e Debugger>
 
 Run and Debug with Node.JS
 
@@ -98,7 +98,7 @@ Watch: adicionar variável para ser monitorada;
 View > Debug Console // acompanhar a linha do código
 
 
-<> For
+<For>
 
 for (inicalização; condição; progressão) {
     for (let i = 0 ; i < 3 ; i++) { // bem comum a utilização de i como variável progressiva (ao invez do contador)
@@ -112,7 +112,7 @@ for (inicalização; condição; progressão) {
 
 <Anotações do Curso de JavaScript 2: Primeiros passos com a linguagem>
 
-<> CLASSE
+<CLASSE>
 "Classes definem uma forma de organizarmos uma série de informações repetidas no nosso código e por isso devemos usar elas quando temos código que se repete e que faz parte de um contexto coeso."
 
     class = "molde" onde se define um conjunto de informações padrão que podem ser alimentadas por diversos "cadastros";
@@ -135,12 +135,12 @@ for (inicalização; condição; progressão) {
         cliente1.Agencia = 1001;
         cliente1.Saldo = 0;
 
-<> OBJETO  
+<OBJETO>
 
     NEW = novo objeto a partir do molde (classe)/ instânciando a classe / é uma instância da classe
         const cliente1 = new Cliente();  
 
-<> Comportamento: Função e Método
+<Comportamento Função e Método>
 
 Função e método são termos sinônimos e que nós ajudam a criar um vocabulário mais rico dentro do nosso sistema.
 Um método pode receber qualquer quantidade de parâmetros.
@@ -176,36 +176,34 @@ export class ContaCorrente {
         conta.depositar(valorSacado);
     }
 
-}
-
 return: sempre encerra a operação (parecido com o break).
 
-<> Atributos privados
+<Atributos privados>
 
 Sugestão de um desenvolvedor e já aplicado no Node: utilzar a # antes da variável (como no exemplo acima).
 Porém, como ainda não está em vigor, não é "legal".
 Hoje a convenção é utilizar o _ antes da variável, para que a comunidade de desenvolvedores saiba que é um atributo privado.
 
-<> 3.2 Módulos JavaScript
+3.2 <Módulos JavaScript>
 
 "Criamos módulos para compartilhar código entre os diferentes arquivos do meu sistema, ajudando na organização dele."
 
 Ideal que se tenha um arquivo JS por classe. Convenção: no nome do arquivo escrever o nome da classe em maiúscula: Cliente.js
 Arquivo index.js acaba sendo apenas a execução do código.
 
-import {Cliente} from "./Cliente.js" //caminho relativo. Em alguns casos é bom utilizar o caminho completo do arquivo.
+    import {Cliente} from "./Cliente.js" //caminho relativo. Em alguns casos é bom utilizar o caminho completo do arquivo.
 
 Em Cliente: 
-export class Cliente {...}
+    export class Cliente {...}
 
-<> Configurando o package.json
+<Configurando o "package.json">
 CTRL + J = Abre o terminal
     npm init
     ...
     package name: bytebank
     version: 
     description: Projeto do bytebank para seus clientes
-    entry point: (index.js) //index vira o arquivo princial "main. alterado até a cor na lateral esquerda <-
+    entry point: (index.js) //index vira o arquivo princial "main". alterado até a cor na lateral esquerda <-
     test command:
     git repository:
     keywords:
@@ -216,8 +214,73 @@ CTRL + J = Abre o terminal
         Adicionar mais uma linha:
         "type": "module" //acrescentado para o index identificar como módulo
 
-> PACKAGE.JSON
+<PACKAGE.JSON>
 https://cursos.alura.com.br/course/javascritpt-orientacao-objetos/task/73639
     É um organizador de gerenciadores de pacote: pense neles como um lugar centralizado onde toda a comunidade pode subir e 
     compartilhar códigos para que outros desenvolvedores usem.
     Com ele é fácil de saber qual a versão do pacote, o nome dele, quem fez aquele código etc.
+
+<Tipo de Valor e tipo de Referência>
+
+Tipo Valor = busca apenas o valor da variável (nesse caso "valor").
+Tipo Referência = traz a variável toda referenciada, ou seja, qualquer alteração dentro do comportamento vai ser alterado em "index" também.
+
+Tipos primitivos são sempre passados como um valor, enquanto que tipos não primitivos sempre são passados por referência.
+
+Ex.:
+    transferir (valor, conta) { //valor = tipo "valor", conta = tipo "referência"
+            conta.cidade = "São Paulo"; 
+            const valorSacado = this.sacar(valor); 
+            conta.depositar(valorSacado); //tem efetividade, pois é do tipo "referência".
+            valor = 20; //não tem efetividade, ele não altera o conteúdo de "valor" pois é uma variável tipo "valor".
+        }
+
+https://cursos.alura.com.br/course/javascritpt-orientacao-objetos/task/73673
+Tipos primitivos são os valores mais simples que a linguagem consegue trabalhar e geralmente são implementados no nível mais baixo da linguagem. 
+Isso significa que eles não são representados como um objeto e por isso não possuem métodos ou atributos.
+Um tipo primitivo é simplesmente um valor em sua forma mais simples de representação. 
+Eles também são imutáveis, uma vez declarados seu valor nunca muda.
+Em Javascript os tipos primitivos são:
+    String (texto)
+    Number (número)
+    Boolean
+    Null
+    undefined
+    Symbol
+
+Qualquer outro tipo que encontramos em nossas aplicações, como Objetos, Arrays, etc... 
+não são tipos primitivos e por isso o JS trata eles de forma diferente. 
+Variáveis que não são primitivas são mutáveis por natureza e podem conter uma estrutura de dados grande e complexa,
+o que tornaria a operação de cópia desses valores ineficiente.
+
+Sempre que passamos a informação new variável() estamos solicitando para que o computador guarde as informações que vamos
+passar em um pedaço de memória.
+Quando passamos uma variável de referência, ele busca nesse espaço de memória as informações. 
+Da mesma forma ele devolve as informações para lá, alterando o conteúdo.
+
+<Null e undefined>
+
+O Null é declarado intencionalmente, para mencionar que né NULO.
+O undefined é como um "erro", que não foi definido, esquecido.
+
+Ex.: 
+    conta2.cliente = null;
+    Dessa forma, não conseguiríamos definir nada para o cliente, pois ele tem um valor nulo.
+
+4.3 <Getters e Setters>
+
+SET > Usando assessores do tipo set podemos alterar a regra de como um atributo pode ou não ser modificado,
+    sem precisar alterar isso em diversos pontos do código;
+    > Usar assessores do tipo set é uma boa prática para garantirmos que a atribuição de propriedades está sempre segura;
+    Chamamos essa ideia de proteger atributos de nossas classes de encapsulamento e devemos sempre manter o máximo de encapsulamento possível.
+
+    set cliente(novoValor) { //set = acessor de atribuição
+        if(novoValor instanceof Cliente){ //só aceita alteração dentro de _cliente, se a "instância" for do tipo "Cliente"
+            //proteção para que seja atribuindo somente algo que esperamos.
+            this._cliente = novoValor;
+        }
+    }
+
+    get saldo() { //atribui ao saldo somente a propriedade de leitura, ou seja, "pegar" o valor, mas não atribuir um novo valor.
+        return this._saldo;
+    }

@@ -20,10 +20,17 @@ const contaCorrenteGra = new ContaCorrente();
 contaCorrenteGra.cliente = cliente2;
 contaCorrenteGra.agencia = 102;
 
+/* Alterativa (não indicada) de definição de elementos: (ao invez de definir nas linhas 8-10)
+contaCorrenteGra.cliente = new Cliente ();
+contaCorrenteGra.cliente.nome = "Gra";
+contaCorrente.cliente.CPF = 88822233309;
+*/
+
+
 contaCorrenteRenan.transferir(200, contaCorrenteGra);
 
-console.log(contaCorrenteGra);
 console.log(contaCorrenteRenan);
+console.log(contaCorrenteGra);
 
 /* demonstativo de valor sacado
 const valorSacado = contaCorrenteRenan.sacar(50);

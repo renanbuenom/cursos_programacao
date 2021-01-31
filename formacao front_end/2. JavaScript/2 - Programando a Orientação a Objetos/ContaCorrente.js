@@ -1,9 +1,24 @@
 export class ContaCorrente {
     agencia;
-    cliente;
+    _cliente;
+
+    set cliente(novoValor) { //set = acessor de atribuição
+        if(novoValor instanceof Cliente){ //só aceita alteração dentro de _cliente, se a "instância" for do tipo "Cliente"
+            //proteção para que seja atribuindo somente algo que esperamos.
+            this._cliente = novoValor;
+        }
+    }
+
+    get cliente() { //get = acessor de pegar valor
+        return this._cliente;
+    }
 
     _saldo = 0; /*adicionado a # no código para que ele seja *privado*. Ou seja, só pode ser alterado por operações da classe
     definir inicialmente como 0, para que ele tenha um valor inicial */
+
+    get saldo() { //atribui ao saldo somente a propriedade de leitura, ou seja, "pegar" o valor, mas não atribuir um novo valor.
+        return this._saldo;
+    }
 
     sacar (valor) {  //*comportamento* de saque. encapsulado dentro da classe
         if (this._saldo >= valor) { //this = variável que estamos trabalhando no momento, de maneira gerérica.
@@ -21,9 +36,9 @@ export class ContaCorrente {
         this._saldo += valor;
     }
 
-    transferir (valor, conta) {
-        const valorSacado = this.sacar(valor);
-        conta.depositar(valorSacado);
+    transferir (valor, conta) { //pedaço de código com "nível de abstração mais alto": utiliza vocabulário de negócio, não de programação.
+        conta.cidade = "São Paulo"; //adicionando dinamicamente uma variável "cidade", sem precisar declarar ela anteriormente.
+        const valorSacado = this.sacar(valor); //this = chama o método para minha própria classe.
     }
 
 }

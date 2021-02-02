@@ -9,7 +9,7 @@ PowerShell
 
 REPL: ambiente de programação que recebe entradas, executa e retorna o resultado ao usuário.
 
-*ATALHOS*
+<ATALHOS>
 shit + alt + seta p/ baixo (ou p/ cima) = copia a linha de atual;
 ctrl + k + c = transforma as linhas selecionas em comentários;
 ctrl + k + u = retira os comentários;
@@ -284,3 +284,20 @@ SET > Usando assessores do tipo set podemos alterar a regra de como um atributo 
     get saldo() { //atribui ao saldo somente a propriedade de leitura, ou seja, "pegar" o valor, mas não atribuir um novo valor.
         return this._saldo;
     }
+
+5.2 <Construtores>
+
+    São utilizados para definir elementos que não são mais alterados, como por exemplo "nome" e "cpf" de um "cliente".
+    A inicialização de atributos é a principal responsabilidade do construtor.
+
+    constructor (nome, cpf) //exemplo
+         Passa a ser:
+            const cliente1 = new Cliente("Renan", 11122233304);
+         Retira a necessidade de se utilizar:
+            cliente1.nome = "Renan";
+            cliente1.cpf = 11122233309;
+
+    Sempre que chamado "new" é atribuído um construtor. Caso o constructor não tenha sido declarado, o JS define um temperário
+        para executar a função.
+
+    *Gerenciamento de Status*: lida como e quando atribuir ou não os atributos de uma classe.

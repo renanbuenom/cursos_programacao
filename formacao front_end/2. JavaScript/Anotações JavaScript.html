@@ -272,7 +272,8 @@ Ex.:
 SET > Usando assessores do tipo set podemos alterar a regra de como um atributo pode ou não ser modificado,
     sem precisar alterar isso em diversos pontos do código;
     > Usar assessores do tipo set é uma boa prática para garantirmos que a atribuição de propriedades está sempre segura;
-    Chamamos essa ideia de proteger atributos de nossas classes de encapsulamento e devemos sempre manter o máximo de encapsulamento possível.
+    Chamamos essa ideia de proteger atributos de nossas classes de encapsulamento e devemos sempre manter 
+    o máximo de encapsulamento possível.
 
     set cliente(novoValor) { //set = acessor de atribuição
         if(novoValor instanceof Cliente){ //só aceita alteração dentro de _cliente, se a "instância" for do tipo "Cliente"
@@ -301,3 +302,14 @@ SET > Usando assessores do tipo set podemos alterar a regra de como um atributo 
         para executar a função.
 
     *Gerenciamento de Status*: lida como e quando atribuir ou não os atributos de uma classe.
+
+5.4 <Atributos Estáticos>
+
+    Em conta corrente:
+        static numeroDeContas = 0; //dessa forma permite que esse atributo seja alterado para todas as classes e não seja exclusivo de cada uma;
+        constructor(agencia, cliente) {
+            ...
+            ...
+            ContaCorrente.numeroDeContas += 1; //sempre que construir uma nova conta, adiciona o número de contas sequencialmente;
+                //deve ser "ContaCorrente", caso contrário alteraria apenas da classe específica (this).    
+    

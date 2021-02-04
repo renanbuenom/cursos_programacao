@@ -312,4 +312,21 @@ SET > Usando assessores do tipo set podemos alterar a regra de como um atributo 
             ...
             ContaCorrente.numeroDeContas += 1; //sempre que construir uma nova conta, adiciona o número de contas sequencialmente;
                 //deve ser "ContaCorrente", caso contrário alteraria apenas da classe específica (this).    
-    
+
+
+<Artigo: replace-manipulando-strings-e-regex> https://www.alura.com.br/artigos/javascript-replace-manipulando-strings-e-regex
+
+*Replace*
+    const CPFSemFormatacao = 'cpf é 25684677037'
+    const CPFFormatado = CPFSemFormatacao.replace('25684677037', '256.846.770-37') 
+    console.log(CPFFormatado) 
+    // O retorno será 'cpf é 256.846.770-37'
+
+*Regex*
+Regex (regular expressions)
+https://www.regular-expressions.info/refquick.html
+
+    const frase = 'Frase que começa com um palavra-feia e tem outra palavra-feia no final'
+
+    const fraseAtualizada = frase.replace(/palavra-feia/, '********') 
+    console.log(fraseAtualizada) // "Frase que começa com um ******** e tem outra ******** no final"

@@ -197,6 +197,8 @@ Em Cliente:
     export class Cliente {...}
 
 <Configurando o "package.json">
+    Configurando como o Node vai interpretar o código;
+
 CTRL + J = Abre o terminal
     npm init
     ...
@@ -212,7 +214,7 @@ CTRL + J = Abre o terminal
 
     No final ele cria um arquivo "package.json"
         Adicionar mais uma linha:
-        "type": "module" //acrescentado para o index identificar como módulo
+        "type": "module" //acrescentado para o index identificar como módulo. O node vai entender para leiura de módulos.
 
 <PACKAGE.JSON>
 https://cursos.alura.com.br/course/javascritpt-orientacao-objetos/task/73639
@@ -330,3 +332,19 @@ https://www.regular-expressions.info/refquick.html
 
     const fraseAtualizada = frase.replace(/palavra-feia/, '********') 
     console.log(fraseAtualizada) // "Frase que começa com um ******** e tem outra ******** no final"
+
+--------------------------//---//-------------------
+<Anotações JavaScript 3: Interfaces e Herança em Orientação a Objetos>
+
+Referência de site JS: developer.mozzila.org
+            /classes 
+                *Propriedades de instância   
+                    "Propriedades de instâncias devem ser definidas dentro dos métodos da classe:
+                    class Retangulo {
+                        constructor(altura, largura) {
+                            this.altura = altura;
+                            this.largura = largura;
+                        }
+                    }"
+                    //Boa prática: altura e largura estão sendo definidos dentro do construtor e não fora como fizemos antes.
+                    Pode ser em qualquer método da classe, mas é bom que seja o construtor pois é quando utilizamos o new no index.

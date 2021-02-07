@@ -1,48 +1,20 @@
-import { Cliente } from "./Cliente.js";
+import { Conta } from "./Conta.js";
 
-export class ContaCorrente {
+export class ContaCorrente extends Conta { //extende tudo que tiver na classe Conta. Isto é a herança da Conta.
     static numeroDeContas = 0;
 
-    set cliente(novoValor) {
-        if (novoValor instanceof Cliente) {
-            this._cliente = novoValor;
-        }
-    }
-
-    get cliente() {
-        return this._cliente;
-    }
-
-    get saldo() {
-        return this._saldo;
-    }
-
-    constructor(agencia, cliente) {
-        this._agencia = agencia;
-        this._cliente = cliente;
-        this._saldo = 0;
+    constructor(cliente, agencia) {
+        super(0, cliente, agencia); //chama o constructor (neste caso) da classe superior (Conta). Consulta: mouse em cima de "super".
         ContaCorrente.numeroDeContas += 1;
     }
 
-
+    //Comportamento adicionado. Vai sobescrever o "sacar" de Conta
     sacar(valor) {
-        if (this._saldo >= valor) {
-            this._saldo -= valor;
-            return valor;
+        let taxa = 1.1; //adicionado .1 (10%) para saques de conta corrente      
+        const valorSacado = taxa * valor;
+        if (this._saldo >= valorSacado) { //só permite sacar o valorSacado se o tiver saldo disponível
+            this._saldo -= valorSacado;
+            return valorSacado;
         }
     }
-
-    depositar(valor) {
-        if (valor <= 0) {
-            return;
-        }
-
-        this._saldo += valor;
-    }
-
-    transferir(valor, conta) {
-        conta.cidade = "São Paulo";
-        const valorSacado = this.sacar(valor);
-    }
-
 }

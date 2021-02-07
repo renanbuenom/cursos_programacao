@@ -348,3 +348,41 @@ Referência de site JS: developer.mozzila.org
                     }"
                     //Boa prática: altura e largura estão sendo definidos dentro do construtor e não fora como fizemos antes.
                     Pode ser em qualquer método da classe, mas é bom que seja o construtor pois é quando utilizamos o new no index.
+
+
+
+1.4 <Compartilhando Código>
+    Temos as mesmas funções para a ContaCorrente e ContaPoupanca. Podemos fazer uma nova classe Conta para centralizar essas
+        funcionalidades em comum.
+
+    <Herança (EXTEND)>
+    Retiramos a definição "Conta" e retornamos "ContaPoupança" ou "ContaCorrente", pois tem regras de diferentes. 
+const contaCorrenteRenan = new Conta(0, 1001, cliente1);
+Utilizamos, por fim, o EXTENDER:
+export class ContaCorrente extends Conta{...}
+    
+    Dessa forma criamos uma Herança da Conta. Deixando em ContaCorrente apenas o único dela:
+        export class ContaCorrente extends Conta { //extende tudo que tiver na classe Conta. Isto é a herança da Conta.
+        static numeroDeContas = 0;
+
+        constructor(cliente, agencia) {
+            super(0,cliente, agencia); //chama o constructor (neste caso) da classe superior (mãe)(Conta). Consulta: mouse em cima de "super".
+            ContaCorrente.numeroDeContas += 1;
+        }
+    }
+
+    <super()> //Chama qualquer função da classe mãe
+        Exemplo:
+        <Em ContaCorrente (chamando extend Conta)>
+        teste() {
+            super.teste();
+            console.log("teste na classe conta corrente")
+        }
+        <Em CONTA>
+        teste(){
+            console.log("teste na classe conta")
+        }
+        Aparece no executar contaCorrenteRenan.teste();
+        "teste na classe conta"
+        "teste na classe conta corrente"
+            Aparece dessa forma pois ele executa o teste de CONTA pelo super da ContaCorrente;

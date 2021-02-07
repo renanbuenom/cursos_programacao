@@ -1,7 +1,7 @@
 import { Cliente } from "./Cliente.js"
 import { ContaCorrente } from "./ContaCorrente.js"
 import { ContaPoupanca } from "./ContaPoupanca.js"
-import { Conta } from "./Conta.js";
+//Boa prática: importar somente o que vai ser usado
 
 const cliente1 = new Cliente("Renan", 11122233304);
 

@@ -34,13 +34,16 @@ Atribuição de Variáveis:
 const = variável constante;
 let = variável comum, podem variar;
 
-Boa prática: atribuir a variável como const, para que ela não seja alterada. 
+<Boas práticas>
+> Atribuir a variável como const, para que ela não seja alterada. 
 Assim como o tipo da variável, uma vez definida como string ou etc, manter. Pois, mudança de estado na programação pode 
 dar erro e é difícil de debuggar.
 Gerenciamento de estado fica complicado se utilizado muito o let, é melhor usar o const.
 
-Boa prática: nome de variáveis bem claras, mesmo que fique longas. Por exemplo, não utilizar nome, mas sim nomeCompleto ou
+> Nome de variáveis bem claras, mesmo que fique longas. Por exemplo, não utilizar nome, mas sim nomeCompleto ou
 primeiroNome;
+
+> Deixar os imports apenas do que está sendo utilizado. O VS Code deixa meio apagado o que não está, isso facilita a limpeza.
 
 6- <Lista>
 const ... = new Array(<variável>);
@@ -386,3 +389,47 @@ export class ContaCorrente extends Conta{...}
         "teste na classe conta"
         "teste na classe conta corrente"
             Aparece dessa forma pois ele executa o teste de CONTA pelo super da ContaCorrente;
+
+2.6 <Privado e Protegido>
+
+    sacar(valor) {
+        let taxa = 1;
+        return this._sacar(valor, taxa);
+    }
+
+    _sacar(valor, taxa) { /*Comportamento privado, as outras classes (ContaCorrente e Poupança) vão se referenciar dele,
+            mas alterando o "sacar". Dessa forma não precisamos reescrever esse código base*/
+        const valorSacado = taxa * valor;
+        if (this._saldo >= valorSacado) { //só permite sacar o valorSacado se o tiver saldo disponível
+            this._saldo -= valorSacado;
+            return valorSacado;
+        }
+
+        return 0; //retorna caso não tenha saldo suficiente (if acima);
+    }
+
+3.3 <Classes Abstratas>
+
+    Classe Abstrata: sempre herdada, nunca instanciada.
+
+    export class Conta {
+    constructor(saldoInicial, cliente, agencia) {
+        if (this.constructor == Conta){ //Bloqueio: em index, não deve ser chamada diretamente, apenas como Corrente ou Poupança
+            throw new Error("Você não deveria instanciar um objeto do tipo Conta diretamente"); //Classe abstrata
+            /*Retirado, manda um aviso mas não resolve o problema:
+            console.error("Você não deveria instanciar um objeto do tipo conta");
+            console.log("Você não deveria instanciar um objeto do tipo conta"); */
+        }
+
+3.5 <Métodos Abstratos>
+
+     //Método Abstrato
+     sacar(valor) {
+        throw new Error("O método Sacar da Conta é abstrato, deve ser sobrescrito")
+        /* Retirado do código, não queremos correr o risco de em outra conta não ser definida a taxa
+        let taxa = 1; //taxa padrão. Onde não for,alterar o valor dentro da classe (ContaCorrente);
+        return this._sacar(valor, taxa); */
+    }
+
+Obs.: O JavaScript é uma linguagem interpretada. Isto é, só da Erro caso ele "leia" a linha do código com o erro.
+Caso não seja chamado, não aparece mensagem alguma.

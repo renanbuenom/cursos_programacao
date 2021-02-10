@@ -1,7 +1,7 @@
 //Classe Abstrata
 export class Conta {
     constructor(saldoInicial, cliente, agencia) {
-        if (this.constructor == Conta){ //Bloqueio: em index, não deve ser chamada diretamente, apenas como Corrente ou Poupança
+        if (this.constructor == Conta) { //Bloqueio: em index, não deve ser chamada diretamente, apenas como Corrente ou Poupança
             throw new Error("Você não deveria instanciar um objeto do tipo Conta diretamente, pois essa é uma classe abstrata");
         }
         this._saldo = saldoInicial; //sempre iniciar as propriedades como privadas como padrão, posteriormente pode-se retirar.
@@ -28,7 +28,7 @@ export class Conta {
 
     //Método Abstrato
     sacar(valor) {
-        throw new Error("O método Sacar da Conta é abstrato, deve ser sobrescrito")
+        throw new Error("O método Sacar da Conta é abstrato, deve ser sobrescrito em outra classe")
         /* Retirado do código, não queremos correr o risco de em outra conta não ser definida a taxa
         let taxa = 1; //taxa padrão. Onde não for,alterar o valor dentro da classe (ContaCorrente);
         return this._sacar(valor, taxa); */

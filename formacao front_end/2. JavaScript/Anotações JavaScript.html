@@ -17,6 +17,8 @@ alt + shit + f = formata o arquivo;
 ctrl + b = abre/fecha a lateral;
 ctrl + alt + seta = [NÃO FUNCIONOU] amplifica o cursor de digitação para mais linhas, assim conseguimos editar várias ao mesmo tempo;
 ctrl + j = abre terminal;
+2 cliques (selecionar) > ctrl + d = vai pra próxima referência;
+2 cliques na classe (seleciona) > ctrl + espaço = insere importação da classe automaticamente;
 
 
 JavaScript é case sensitive: faz diferença maiúscula e minúscula;
@@ -425,7 +427,7 @@ export class ContaCorrente extends Conta{...}
 
      //Método Abstrato
      sacar(valor) {
-        throw new Error("O método Sacar da Conta é abstrato, deve ser sobrescrito")
+        throw new Error("O método Sacar da Conta é abstrato, deve ser sobrescrito em outra classe")
         /* Retirado do código, não queremos correr o risco de em outra conta não ser definida a taxa
         let taxa = 1; //taxa padrão. Onde não for,alterar o valor dentro da classe (ContaCorrente);
         return this._sacar(valor, taxa); */
@@ -433,3 +435,7 @@ export class ContaCorrente extends Conta{...}
 
 Obs.: O JavaScript é uma linguagem interpretada. Isto é, só da Erro caso ele "leia" a linha do código com o erro.
 Caso não seja chamado, não aparece mensagem alguma.
+
+4.2 <Criando Funcionários>
+
+    

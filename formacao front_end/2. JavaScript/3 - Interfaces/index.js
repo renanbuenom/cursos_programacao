@@ -1,23 +1,15 @@
 import { Cliente } from "./Cliente.js"
-import { ContaCorrente } from "./ContaCorrente.js"
-import { ContaPoupanca } from "./ContaPoupanca.js"
-//Boa prática: importar somente o que vai ser usado
+import { Gerente } from './Funcionario/Gerente.js'
+import { Diretor } from './Funcionario/Diretor.js'
+import { SistemaAutenticacao } from "./SistemaAutenticacao.js";
 
-const cliente1 = new Cliente("Renan", 11122233304);
+const  diretor = new Diretor("Rodrigo", 10000, 12345678900);
+diretor.cadastrarSenha("senha1");
+const gerente = new Gerente ("Márcio", 5000, 98765432100);
+gerente.cadastrarSenha("senha2");
 
-const contaCorrenteRenan = new ContaCorrente(cliente1, 1001);
-contaCorrenteRenan.depositar(500);
-contaCorrenteRenan.sacar(100);
+const estaLogado = SistemaAutenticacao.login(gerente, "senha2"); 
+/*Polimorfismo: podemos chamar "gerente" ou "diretor" que o SistemaAutenticacao interpreta da mesma forma.
+funciona para qualquer objeto que tenha "senha" */
 
-const contaPoupanca = new ContaPoupanca(50, cliente1, 1001);
-contaPoupanca.sacar(10);
-
-contaCorrenteRenan.transferir(100, contaPoupanca);
-
-/*Retiramos a definição new "Conta" e retornamos "ContaPoupança" ou "ContaCorrente", pois tem regras de diferentes. 
-const contaCorrenteRenan = new Conta(0, 1001, cliente1);
-Utiliazamos, por fim, o EXTENDER:
-export class ContaCorrente extends Conta{...} */
-
-console.log(contaCorrenteRenan);
-console.log(contaPoupanca);
+console.log(estaLogado);

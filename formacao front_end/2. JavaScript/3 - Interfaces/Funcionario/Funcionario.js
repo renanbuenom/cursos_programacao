@@ -12,8 +12,12 @@ export class Funcionario {
     O SistemaAutenticacao só se preocupa com o acessor get*/
         return this._senha;
     }
-
+ 
     cadastrarSenha(senha) {
         this._senha = senha;
+    }
+
+    autenticar(senha) {
+        return senha == this._senha;
     }
 }

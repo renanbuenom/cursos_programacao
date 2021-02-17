@@ -53,9 +53,10 @@ export class Conta {
         this._saldo += valor;
     }
 
+    //Correção no comportamento: deve depositar o valor informado, não o "valorSacado", pois no valorSacado é aplicada uma taxa.
     transferir(valor, conta) {
-        const valorSacado = this.sacar(valor);
-        conta.depositar(valorSacado);
+        this.sacar(valor);
+        conta.depositar(valor);
     }
 
 }

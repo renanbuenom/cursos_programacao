@@ -443,6 +443,7 @@ Caso não seja chamado, não aparece mensagem alguma.
         Essa forma mais genéria é chamada de Polimorfismo.
         Qualquer propriedade que derive de funcionario e tenha uma senha é aceito dentro do SistemaAutenticaco.
     É um objeto que pode ser tratado de várias formas, que se transforma de diversas maneiras.
+    É um dos pilares da programação orientada a objetos, evita uma série de IFs, por exemplo.
 
 5.2 <Propriedades e Tipos>
 
@@ -451,3 +452,12 @@ Caso não seja chamado, não aparece mensagem alguma.
     Como é possível que o Sistema de autenticação consiga receber diversos tipos de objetos por parâmetro e mesmo assim continuar funcionando?
     1) Isso é possível porque o JS não é uma linguagem fortemente tipada e por isso não depende apenas dos tipos pré-definidos mas sim se eles possuem ou não as propriedades que queremos utilizar!
     2) Através do polimorfismo o JS consegue tratar diferentes objetos de maneiras semelhantes e por isso conseguimos autenticar diferentes tipos de objetos em nosso sistema!
+
+5.4 <Ducky Type>
+    Não importa o que o método é, importa se ele tem as propriedades que queremos. É o caso da utilização do autentivavel dentro do SistemaAutenticaco,
+    não importe de qual classe, basta ter a prorpriedade autenticar dentro dele.
+
+    <Encapsulamento>
+        Outro pilar da orientação a objetos. Proteger os elementos com os:
+            > Acessores            
+            > Métodos abstratados

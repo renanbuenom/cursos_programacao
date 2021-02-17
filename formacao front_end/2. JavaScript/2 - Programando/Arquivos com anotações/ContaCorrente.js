@@ -23,7 +23,7 @@ export class ContaCorrente {
         return this._cliente;
     }
 
-    get saldo() { //atribui ao saldo somente a propriedade de leitura, ou seja, "pegar" o valor, mas não atribuir um novo valor.
+    get saldo() { //atribui ao saldo somente a propriedade de leitura, ou seja, "pegar" o valor, mas não atribui um novo valor.
         return this._saldo;
     }
 

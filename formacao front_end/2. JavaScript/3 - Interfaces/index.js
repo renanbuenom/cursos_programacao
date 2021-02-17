@@ -9,10 +9,14 @@ const gerente = new Gerente ("Márcio", 5000, 98765432100);
 gerente.cadastrarSenha("senha2");
 
 const cliente = new Cliente("Laís", 12345677855, "456");
-const estaLogado = SistemaAutenticacao.login(cliente, "456"); 
+const clienteEstaLogado = SistemaAutenticacao.login(cliente, "456"); 
+const gerenteEstaLogado = SistemaAutenticacao.login(gerente, "senha2"); 
+const diretorEstaLogado = SistemaAutenticacao.login(diretor,"senha1")
 
 //const estaLogado = SistemaAutenticacao.login(gerente, "senha2"); 
 /*Polimorfismo: podemos chamar "gerente","diretor" uo "cliente" que o SistemaAutenticacao interpreta da mesma forma.
 funciona para qualquer objeto que tenha "senha" */
 
-console.log(estaLogado);
+console.log(clienteEstaLogado);
+console.log(gerenteEstaLogado);
+console.log(diretorEstaLogado);

@@ -7,12 +7,18 @@ import { ContaSalario } from "./Conta/ContaSalario.js"
 const cliente1 = new Cliente("Renan", 11122233304);
 
 const contaCorrenteRenan = new ContaCorrente(cliente1, 1001);
-const contaPoupanca = new ContaPoupanca(50, cliente1, 1001);
-const contaSalario = new ContaSalario(cliente1);
+const contaPoupancaRenan = new ContaPoupanca(50, cliente1, 1001);
+const contaSalarioRenan = new ContaSalario(cliente1);
 contaCorrenteRenan.depositar(500);
 contaCorrenteRenan.sacar(100);
-contaPoupanca.sacar(10);
-contaSalario.sacar(200);
+contaPoupancaRenan.sacar(10);
+contaSalarioRenan.sacar(200);
+
+console.log(contaCorrenteRenan);
+console.log(contaPoupancaRenan);
+
+
+contaCorrenteRenan.transferir(100, contaPoupancaRenan);
 
 
 /*Retiramos a definição new "Conta" e retornamos "ContaPoupança" ou "ContaCorrente", pois tem regras de diferentes. 
@@ -21,5 +27,5 @@ Utilizamos, por fim, o EXTENDER nas classes:
 export class ContaCorrente extends Conta{...} */
 
 console.log(contaCorrenteRenan);
-console.log(contaPoupanca);
-console.log(contaSalario);
+console.log(contaPoupancaRenan);
+//console.log(contaSalarioRenan);
